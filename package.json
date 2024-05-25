@@ -15,7 +15,8 @@
     "ra-data-json-server": "^4.16.17",
     "react": "^18",
     "react-admin": "^4.16.18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "sass": "^1.77.2"
   },
   "devDependencies": {
     "@types/node": "^20",
