@@ -9,9 +9,6 @@ const Main = ({ children } : { children: React.ReactNode }) => {
             <div className="header">
                 <DropDown />
             </div>
-            <div className="menu">
-                menu
-            </div>
             <div className="main">
                 {children}
             </div>
