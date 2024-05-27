@@ -1,16 +1,13 @@
 import React from "react";
 
 import './style.scss'
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faEllipsis} from "@fortawesome/free-solid-svg-icons";
+import DropDown from "@/components/DropDown";
 
 const Main = ({ children } : { children: React.ReactNode }) => {
     return (
         <div className="layout">
             <div className="header">
-                <button type="button">
-                    <FontAwesomeIcon icon={faEllipsis} width={30} />
-                </button>
+                <DropDown />
             </div>
             <div className="menu">
                 menu
