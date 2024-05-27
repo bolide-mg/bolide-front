@@ -1,14 +1,10 @@
 "use client"
 
-import { Menu, MenuButton, MenuItem, MenuItems, Transition } from '@headlessui/react'
-import { ChevronDownIcon } from '@heroicons/react/20/solid'
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faEllipsis} from "@fortawesome/free-solid-svg-icons";
+import {Menu, MenuButton, MenuItem, MenuItems, Transition} from '@headlessui/react'
+import {ChevronDownIcon} from '@heroicons/react/20/solid'
 import React from "react";
+import {classNames} from "@/utils";
 
-function classNames(...classes: string[]) {
-    return classes.filter(Boolean).join(' ')
-}
 
 const DropDown = () => {
     return (

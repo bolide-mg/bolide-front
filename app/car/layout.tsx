@@ -1,14 +1,12 @@
 import React from "react";
 
 import './style.scss'
-import DropDown from "@/components/DropDown";
+import NavBar from "@/components/NavBar";
 
 const Main = ({ children } : { children: React.ReactNode }) => {
     return (
         <div className="layout">
-            <div className="header">
-                <DropDown />
-            </div>
+            <NavBar />
             <div className="main">
                 {children}
             </div>
