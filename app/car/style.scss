@@ -1,47 +1,13 @@
 .layout {
-  display: grid;
-  grid-template-areas:
-    'header'
-    'main'
-    'main'
-    'main'
-    'main'
-    'main'
-    'main'
-    'main'
-    'main'
-    'main'
-    'main'
-    'main'
-    'main'
-    'main'
-    'main'
-    'main'
-    'main'
-    'main'
-    'main'
-    'main'
-    'main'
-    'main'
-    'main'
-    'main'
-    'main';
   height: 100vh;
   .header {
-    grid-area: header;
-    .nav-content {
-      display: flex;
-      align-items: center;
-    }
+    height: 5em;
   }
   .main {
-    grid-area: main;
+    height: calc(100vh - 5em);
     background-color: white;
     color: black;
     overflow-x: hidden;
     overflow-y: auto;
-    div {
-      height: 200vh;
-    }
   }
 }

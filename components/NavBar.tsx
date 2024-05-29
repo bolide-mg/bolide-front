@@ -26,11 +26,11 @@ const Main = () => {
     })
 
     return (
-        <Disclosure as="nav" className="bg-grey z-30 backdrop-blur header">
+        <Disclosure as="nav" className="bg-grey header sticky top-0">
             {({ open }) => (
                 <>
-                    <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-                        <div className="relative flex h-16 items-center justify-between">
+                    <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 h-full">
+                        <div className="relative flex h-full items-center justify-between">
                             <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                                 <DisclosureButton className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                                     <span className="absolute -inset-0.5" />
@@ -68,7 +68,7 @@ const Main = () => {
                         </div>
                     </div>
 
-                    <DisclosurePanel className="sm:hidden">
+                    <DisclosurePanel className="sm:hidden backdrop-blur">
                         <div className="space-y-1 px-2 pb-3 pt-2">
                             {navigation.map((item) => (
                                 <DisclosureButton

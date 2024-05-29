@@ -1,7 +1,7 @@
 const Main = () => {
     return (
         <p>
-            test1
+            /car
         </p>
     )
 }
