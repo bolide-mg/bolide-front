@@ -6,6 +6,7 @@ import {Bars3Icon, XMarkIcon} from '@heroicons/react/24/outline'
 import DropDown from "@/components/DropDown";
 import {getURL} from "next/dist/shared/lib/utils";
 import {classNames} from "@/utils";
+import theme from "tailwindcss/defaultTheme";
 
 const navigation = [
     { name: 'Main Page', href: '/car', current: true },
@@ -25,7 +26,7 @@ const Main = () => {
     })
 
     return (
-        <Disclosure as="nav" className="bg-gray-800 header">
+        <Disclosure as="nav" className="bg-grey z-30 backdrop-blur header">
             {({ open }) => (
                 <>
                     <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -42,7 +43,7 @@ const Main = () => {
                                 </DisclosureButton>
                             </div>
                             <div className="nav-content flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                                <div className="flex flex-shrink-0 items-center text-emerald-500 font-extrabold text-2xl">
+                                <div className="flex flex-shrink-0 items-center text-primary font-extrabold text-2xl">
                                     Car
                                 </div>
                                 <div className="hidden sm:ml-6 sm:block">
@@ -52,8 +53,8 @@ const Main = () => {
                                                 key={item.name}
                                                 href={item.href}
                                                 className={classNames(
-                                                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                                                    'rounded-md px-3 py-2 text-sm font-medium'
+                                                    item.current ? 'bg-base text-text-base' : 'text-text-base hover:bg-base hover:text-text-hover',
+                                                    'rounded-md px-3 py-2 text-sm font-extrabold'
                                                 )}
                                                 aria-current={item.current ? 'page' : undefined}
                                             >
