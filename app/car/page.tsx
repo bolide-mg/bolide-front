@@ -1,8 +1,11 @@
+import React from "react";
+import BackgroundImage from "@/components/BackgroundImage";
+
 const Main = () => {
     return (
-        <p>
-            /car
-        </p>
+        <>
+            <BackgroundImage />
+        </>
     )
 }
 

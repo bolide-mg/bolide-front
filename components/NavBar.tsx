@@ -26,7 +26,7 @@ const Main = () => {
     })
 
     return (
-        <Disclosure as="nav" className="bg-grey header sticky top-0">
+        <Disclosure as="nav" className="bg-base z-50 header sticky top-0">
             {({ open }) => (
                 <>
                     <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 h-full">
@@ -53,7 +53,7 @@ const Main = () => {
                                                 key={item.name}
                                                 href={item.href}
                                                 className={classNames(
-                                                    item.current ? 'bg-base text-text-base' : 'text-text-base hover:bg-base hover:text-text-hover',
+                                                    item.current ? 'bg-grey text-text-hover' : 'text-text-base hover:bg-grey hover:text-text-hover',
                                                     'rounded-md px-3 py-2 text-sm font-extrabold'
                                                 )}
                                                 aria-current={item.current ? 'page' : undefined}

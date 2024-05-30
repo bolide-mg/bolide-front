@@ -16,7 +16,7 @@ const config: Config = {
         alert: "#FF6700",
         text: {
           base: "rgb(0,0,0)",
-          hover: "rgb(39,31,31)",
+          hover: "rgb(66,77,78)",
         }
       },
       backgroundImage: {
