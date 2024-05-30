@@ -1,31 +1,28 @@
-import {encodeToBase64} from "next/dist/build/webpack/loaders/utils";
-
 export const authProvider = {
-    login: ({ username, password } : { username: string, password: string }) => {
-        const request = new Request('http://localhost:8080/admin/token', {
-            method: 'POST',
-            headers: new Headers({
-                Authorization: `Basic ${encodeToBase64(`${username}:${password}`)}`,
-            })
+    login: async ({username, password}: { username: string, password: string }) => {
+        const request = new Request('http://localhost:8080/admin/signin', {
+            method: 'PUT',
+            body: JSON.stringify({
+                email: username,
+                password
+            }),
+            headers: new Headers({'Content-Type': 'application/json'}),
         });
-        const result = fetch(request)
-            .then(response => {
-                if (response.status < 200 || response.status >= 300) {
-                    throw new Error(response.statusText);
-                }
-                const result = response.json();
-                console.log(result);
-                return result;
-            })
-            .then(auth => {
-                localStorage.setItem('auth', JSON.stringify(auth));
-            })
-            .catch(e => {
-                console.error(e);
-                throw new Error('Network error')
-            });
-        localStorage.setItem('username', username);
-        return Promise.resolve();
+        try {
+            const response = await fetch(request);
+            if (response.status == 401) {
+                throw new Error("Bad credentials")
+            }
+            else if (response.status < 200 || response.status >= 300) {
+                throw new Error(response.statusText);
+            }
+            const auth = await response.text();
+            localStorage.setItem('auth', JSON.stringify(auth));
+            localStorage.setItem('username', username);
+        } catch (e) {
+            console.error(e);
+            throw new Error('Network error');
+        }
     },
     logout: () => {
         localStorage.removeItem('username');
