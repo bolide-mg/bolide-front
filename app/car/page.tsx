@@ -5,6 +5,9 @@ const Main = () => {
     return (
         <>
             <BackgroundImage />
+            <div>
+                <p>Welcome to this random web site</p>
+            </div>
         </>
     )
 }
