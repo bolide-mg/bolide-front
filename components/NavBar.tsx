@@ -7,6 +7,7 @@ import DropDown from "@/components/DropDown";
 import {getURL} from "next/dist/shared/lib/utils";
 import {classNames} from "@/utils";
 import theme from "tailwindcss/defaultTheme";
+import LinkMainPage from "@/components/LinkMainPage";
 
 const navigation = [
     { name: 'Main Page', href: '/car', current: true },
@@ -44,7 +45,7 @@ const Main = () => {
                             </div>
                             <div className="nav-content flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                                 <div className="flex flex-shrink-0 items-center text-primary font-extrabold text-2xl">
-                                    <a href="/car">Bolide</a>
+                                    <LinkMainPage />
                                 </div>
                                 <div className="hidden sm:ml-6 sm:block">
                                     <div className="flex space-x-4">

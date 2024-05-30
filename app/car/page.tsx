@@ -1,16 +1,29 @@
 import React from "react";
 import BackgroundImage from "@/components/BackgroundImage";
 import Image from "next/image";
+import {StaticImport} from "next/dist/shared/lib/get-img-props";
+import LinkMainPage from "@/components/LinkMainPage";
 
-const Section = ({ text, reverted } : { text: React.ReactNode, reverted?: boolean }) => (
+const Section = ({
+     text,
+     reverted,
+     image
+} : {
+    text: React.ReactNode,
+    reverted?: boolean,
+    image?: string | StaticImport
+}) => (
     <div className={`w-4/5 bg-base rounded-xl flex flex-col items-center ${reverted ? "md:flex-row-reverse" : "md:flex-row"}`}>
-        <Image
+        {
+            image ?
+            <Image
             width={300}
             height={120}
             className="h-80 p-16 md:p-8"
-            src="https://th.bing.com/th/id/R.a701b4055fcaa63eba58a5a2205dcba8?rik=XzKpQj1V5SJJCA&riu=http%3a%2f%2fwww.itcjewelry.com%2fimg%2fillustration-1.png&ehk=9YYEaRBknefzGSHvi6JX1YfHQVgb%2fYC1OdUk0UucjKE%3d&risl=&pid=ImgRaw&r=0"
-            alt="prix value"/>
-        <div className="w-3/5 px-8 py-16 md:p-16">
+            src={image || ""}
+            alt="prix value"/> : <></>
+        }
+        <div className={`${image ? "w-3/5" : "w-full"} px-8 py-16 md:p-16`}>
             {text}
         </div>
     </div>
@@ -29,7 +42,7 @@ const Main = () => {
                     <div className="w-4/5 bg-opacity-grey rounded-xl backdrop-blur flex flex-col items-center py-16 gap-16">
                         <Section
                             text={<>
-                                <p className="font-semibold">Bolide</p>
+                                <LinkMainPage />
                                 <br/>
                                 <p>Nous comprenons que l`achat d`une voiture est une décision importante.</p>
                                 <br/>
@@ -37,6 +50,7 @@ const Main = () => {
                                     transparente
                                     et sans stress.</p>
                             </>}
+                            image="https://th.bing.com/th/id/R.a701b4055fcaa63eba58a5a2205dcba8?rik=XzKpQj1V5SJJCA&riu=http%3a%2f%2fwww.itcjewelry.com%2fimg%2fillustration-1.png&ehk=9YYEaRBknefzGSHvi6JX1YfHQVgb%2fYC1OdUk0UucjKE%3d&risl=&pid=ImgRaw&r=0"
                             reverted
                         />
                         <Section
@@ -44,6 +58,7 @@ const Main = () => {
                                 <p>Avec notre large sélection de véhicules neufs et d`occasion, vous êtes sûr de trouver la
                                     voiture de vos rêves au meilleur prix.</p>
                             </>}
+                            image="https://th.bing.com/th/id/R.a701b4055fcaa63eba58a5a2205dcba8?rik=XzKpQj1V5SJJCA&riu=http%3a%2f%2fwww.itcjewelry.com%2fimg%2fillustration-1.png&ehk=9YYEaRBknefzGSHvi6JX1YfHQVgb%2fYC1OdUk0UucjKE%3d&risl=&pid=ImgRaw&r=0"
                         />
                     </div>
                 </div>
@@ -51,15 +66,29 @@ const Main = () => {
                     <div className="w-4/5 bg-opacity-grey rounded-xl backdrop-blur flex flex-col items-center py-16 gap-16">
                         <Section
                             text={<>
-                                <p className="font-semibold">Pourquoi choisir Bolide ?</p>
-                                <ul className="list-disc">
-                                    <li>Large Sélection de Véhicules
-                                        Que vous recherchiez une citadine économique, un SUV spacieux, ou une voiture de sport, nous avons quelque chose pour tout le monde.</li>
-                                    <li>Prix Compétitifs
-                                        Grâce à nos partenariats avec les principaux constructeurs et notre réseau de fournisseurs, nous offrons des prix imbattables sur tous nos véhicules.</li>
+                                <p className="font-semibold">Pourquoi choisir <LinkMainPage /> ?</p>
+                            </>}
+                            image="https://th.bing.com/th/id/R.a701b4055fcaa63eba58a5a2205dcba8?rik=XzKpQj1V5SJJCA&riu=http%3a%2f%2fwww.itcjewelry.com%2fimg%2fillustration-1.png&ehk=9YYEaRBknefzGSHvi6JX1YfHQVgb%2fYC1OdUk0UucjKE%3d&risl=&pid=ImgRaw&r=0"
+                            reverted
+                        />
+                        <Section
+                            text={<>
+                                <ul className="list-decimal">
+                                    <li><p className="font-semibold">Large Sélection de Véhicules</p>
+                                        Que vous recherchiez une citadine économique, un SUV spacieux, ou une voiture de
+                                        sport, nous avons quelque chose pour tout le monde.
+                                    </li>
+                                    <br/>
+                                    <li><p className="font-semibold">Prix Compétitifs</p>
+                                        Grâce à nos partenariats avec les principaux constructeurs et notre réseau de
+                                        fournisseurs, nous offrons des prix imbattables sur tous nos véhicules.
+                                    </li>
+                                    <br/>
+                                    <li><p className="font-semibold">Qualité et Fiabilité</p>
+                                        Chaque voiture passe par une inspection rigoureuse avant d`être mise en vente, vous garantissant ainsi des véhicules fiables et en parfait état.
+                                    </li>
                                 </ul>
                             </>}
-                            reverted
                         />
                     </div>
                 </div>
