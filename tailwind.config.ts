@@ -14,6 +14,9 @@ const config: Config = {
         grey: "#C0C0C0",
         base: "#EBEBEB",
         alert: "#FF6700",
+        opacity: {
+          grey: "rgba(192,192,192,0.35)"
+        },
         text: {
           base: "rgb(0,0,0)",
           hover: "rgb(66,77,78)",
