@@ -15,7 +15,8 @@ const config: Config = {
         base: "#EBEBEB",
         alert: "#FF6700",
         opacity: {
-          grey: "rgba(192,192,192,0.35)"
+          grey: "rgba(192,192,192,0.35)",
+          base: "rgba(235,235,235,0.61)"
         },
         text: {
           base: "rgb(0,0,0)",

@@ -26,7 +26,7 @@ const Main = () => {
     })
 
     return (
-        <Disclosure as="nav" className="bg-base z-50 header sticky top-0">
+        <Disclosure as="nav" className="backdrop-blur z-50 header sticky top-0">
             {({ open }) => (
                 <>
                     <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 h-full">
