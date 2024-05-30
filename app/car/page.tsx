@@ -3,7 +3,7 @@ import BackgroundImage from "@/components/BackgroundImage";
 import Image from "next/image";
 
 const Section = ({ text, reverted } : { text: React.ReactNode, reverted?: boolean }) => (
-    <div className={`w-4/5 bg-base rounded-xl flex flex-col items-center md:flex-row${reverted ? "-reverse" : ""}`}>
+    <div className={`w-4/5 bg-base rounded-xl flex flex-col items-center ${reverted ? "md:flex-row-reverse" : "md:flex-row"}`}>
         <Image
             width={300}
             height={120}
