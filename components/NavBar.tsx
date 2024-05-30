@@ -44,7 +44,7 @@ const Main = () => {
                             </div>
                             <div className="nav-content flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                                 <div className="flex flex-shrink-0 items-center text-primary font-extrabold text-2xl">
-                                    Car
+                                    <a href="/car">Bolide</a>
                                 </div>
                                 <div className="hidden sm:ml-6 sm:block">
                                     <div className="flex space-x-4">

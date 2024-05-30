@@ -5,8 +5,9 @@ const Main = () => {
     return (
         <>
             <BackgroundImage />
-            <div>
-                <p>Welcome to this random web site</p>
+            <div className="h-screen w-screen flex justify-center items-center flex-col">
+                <p className="text-9xl font-bold">Welcome</p>
+                <p className="text-9xl font-bold text-primary">Bolide</p>
             </div>
         </>
     )
