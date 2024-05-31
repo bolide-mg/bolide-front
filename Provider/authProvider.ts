@@ -15,8 +15,14 @@ const login = async ({username, password}: { username: string, password: string 
         else if (response.status < 200 || response.status >= 300) {
             throw new Error(response.statusText);
         }
-        const auth = await response.text();
-        localStorage.setItem('auth', JSON.stringify(auth));
+        const bodyJson: {
+            token: string,
+            admin: {
+                id: number
+            }
+        } = await response.json();
+        localStorage.setItem('auth', bodyJson.token);
+        localStorage.setItem('id', String(bodyJson.admin.id));
         localStorage.setItem('username', username);
     } catch (e) {
         console.error(e);
@@ -59,7 +65,7 @@ export const authProvider = {
         // other error code (404, 500, etc): no need to log out
         return Promise.resolve();
     },
-    getIdentity: ()=>getIdentity(1), //TODO: store the id of the admin
+    getIdentity: ()=>getIdentity(Number(localStorage.getItem("id"))),
     getPermissions: () => Promise.resolve(''),
 };
 
