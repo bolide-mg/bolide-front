@@ -1,4 +1,5 @@
 import {Input} from "@headlessui/react";
+import SellCard from "@/components/SellCard";
 
 const Main = () => {
     return (
@@ -12,7 +13,7 @@ const Main = () => {
                     />
                 </div>
                 <div className="min-h-full flex justify-center py-5">
-                    <div className="w-full md:w-3/4 rounded-xl flex flex-col border">
+                    <div className="w-full md:w-3/4 rounded-xl flex justify-evenly p-5 border flex-wrap gap-10">
                         The result
                         {/*TODO: design the search page result*/}
                     </div>
