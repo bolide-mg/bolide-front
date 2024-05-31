@@ -23,7 +23,7 @@ const Section = ({
             src={image || ""}
             alt="prix value"/> : <></>
         }
-        <div className={`${image ? "w-3/5" : "w-full"} px-8 py-16 md:p-16`}>
+        <div className={`${image ? "w-full md:w-3/5" : "w-full"} px-8 py-16 md:p-16`}>
             {text}
         </div>
     </div>
@@ -33,13 +33,13 @@ const Main = () => {
     return (
         <>
             <BackgroundImage/>
-            <div className="h-screen w-screen flex justify-center items-center flex-col">
-                <p className="text-9xl font-bold">Welcome</p>
-                <p className="text-9xl font-bold text-primary">Bolide</p>
+            <div className="h-full w-screen flex justify-center items-center flex-col">
+                <p className="text-7xl md:text-9xl font-bold">Welcome</p>
+                <p className="text-7xl md:text-9xl font-bold text-primary">Bolide</p>
             </div>
             <div className="w-full flex flex-col gap-20">
                 <div className="w-screen flex justify-center items-center flex-col gap-20 text-text-base">
-                    <div className="w-4/5 bg-opacity-grey rounded-xl backdrop-blur flex flex-col items-center py-16 gap-16">
+                    <div className="md:w-4/5 bg-opacity-grey rounded-xl backdrop-blur flex flex-col items-center py-16 gap-16">
                         <Section
                             text={<>
                                 <LinkMainPage />
@@ -63,7 +63,7 @@ const Main = () => {
                     </div>
                 </div>
                 <div className="w-screen flex justify-center items-center flex-col gap-20 text-text-base">
-                    <div className="w-4/5 bg-opacity-grey rounded-xl backdrop-blur flex flex-col items-center py-16 gap-16">
+                    <div className="md:w-4/5 bg-opacity-grey rounded-xl backdrop-blur flex flex-col items-center py-16 gap-16">
                         <Section
                             text={<>
                                 <p className="font-semibold">Pourquoi choisir <LinkMainPage /> ?</p>

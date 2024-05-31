@@ -10,7 +10,7 @@ const DropDown = () => {
     return (
         <Menu as="div" className="relative inline-block text-left">
             <div>
-                <MenuButton className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-base px-3 py-2 text-sm font-semibold text-primary shadow-sm hover:bg-grey">
+                <MenuButton className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-base px-3 py-2 text-sm font-semibold text-primary shadow-sm  border border-primary hover:bg-grey">
                     Options
                     <ChevronDownIcon className="-mr-1 h-5 w-5 text-primary" aria-hidden="true" />
                 </MenuButton>
