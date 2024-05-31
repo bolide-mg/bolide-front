@@ -1,3 +1,18 @@
+const getIdentity = async (id: number) => {
+    const request = new Request(`http://localhost:8080/admin/${id}`);
+    let response = await fetch(request);
+    let json: {
+        email: string,
+        id: number,
+        name: string,
+        password: string
+    } = await response.json();
+    return {
+        id: json.id,
+        fullName: json.name,
+    };
+}
+
 export const authProvider = {
     login: async ({username, password}: { username: string, password: string }) => {
         const request = new Request('http://localhost:8080/admin/signin', {
@@ -40,11 +55,7 @@ export const authProvider = {
         // other error code (404, 500, etc): no need to log out
         return Promise.resolve();
     },
-    getIdentity: () =>
-        Promise.resolve({
-            id: 'user',
-            fullName: 'John Doe',
-        }),
+    getIdentity: ()=>getIdentity(1), //TODO: store the id of the admin
     getPermissions: () => Promise.resolve(''),
 };
 
