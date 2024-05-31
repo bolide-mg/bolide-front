@@ -2,9 +2,13 @@
   height: 100vh;
   .header {
     height: 5em;
+    width: 100vw;
+    position: absolute;
+    top: 0;
   }
   .main {
-    height: calc(100vh - 5em);
+    padding-top: 5em;
+    height: 100vh;
     overflow-x: hidden;
     overflow-y: auto;
   }
