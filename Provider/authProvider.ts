@@ -1,3 +1,29 @@
+const login = async ({username, password}: { username: string, password: string }) => {
+    const request = new Request('http://localhost:8080/admin/signin', {
+        method: 'PUT',
+        body: JSON.stringify({
+            email: username,
+            password
+        }),
+        headers: new Headers({'Content-Type': 'application/json'}),
+    });
+    try {
+        const response = await fetch(request);
+        if (response.status == 401) {
+            throw new Error("Bad credentials")
+        }
+        else if (response.status < 200 || response.status >= 300) {
+            throw new Error(response.statusText);
+        }
+        const auth = await response.text();
+        localStorage.setItem('auth', JSON.stringify(auth));
+        localStorage.setItem('username', username);
+    } catch (e) {
+        console.error(e);
+        throw new Error('Network error');
+    }
+};
+
 const getIdentity = async (id: number) => {
     const request = new Request(`http://localhost:8080/admin/${id}`);
     let response = await fetch(request);
@@ -11,34 +37,10 @@ const getIdentity = async (id: number) => {
         id: json.id,
         fullName: json.name,
     };
-}
+};
 
 export const authProvider = {
-    login: async ({username, password}: { username: string, password: string }) => {
-        const request = new Request('http://localhost:8080/admin/signin', {
-            method: 'PUT',
-            body: JSON.stringify({
-                email: username,
-                password
-            }),
-            headers: new Headers({'Content-Type': 'application/json'}),
-        });
-        try {
-            const response = await fetch(request);
-            if (response.status == 401) {
-                throw new Error("Bad credentials")
-            }
-            else if (response.status < 200 || response.status >= 300) {
-                throw new Error(response.statusText);
-            }
-            const auth = await response.text();
-            localStorage.setItem('auth', JSON.stringify(auth));
-            localStorage.setItem('username', username);
-        } catch (e) {
-            console.error(e);
-            throw new Error('Network error');
-        }
-    },
+    login: login,
     logout: () => {
         localStorage.removeItem('username');
         localStorage.removeItem('auth');
