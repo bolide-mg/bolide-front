@@ -26,6 +26,7 @@ const DropDown = () => {
             >
                 <MenuItems className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                     <div className="py-1">
+                        {/*TODO: change the content of the drop down in nav bar by remove or add MenuItem here*/}
                         <MenuItem>
                             {({ focus }) => (
                                 <a

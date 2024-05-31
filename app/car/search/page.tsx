@@ -14,6 +14,7 @@ const Main = () => {
                 <div className="min-h-full flex justify-center py-5">
                     <div className="w-full md:w-3/4 rounded-xl flex flex-col border">
                         The result
+                        {/*TODO: design the search page result*/}
                     </div>
                 </div>
             </div>

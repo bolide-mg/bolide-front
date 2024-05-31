@@ -92,6 +92,7 @@ const Main = () => {
                         />
                     </div>
                 </div>
+                {/*TODO: create more section here ( about, recommendation, ... )*/}
             </div>
         </>
     )
