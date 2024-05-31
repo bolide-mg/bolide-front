@@ -24,6 +24,12 @@ const login = async ({username, password}: { username: string, password: string 
     }
 };
 
+const logout = async () => {
+    localStorage.removeItem('username');
+    localStorage.removeItem('auth');
+    return Promise.resolve();
+}
+
 const getIdentity = async (id: number) => {
     const request = new Request(`http://localhost:8080/admin/${id}`);
     let response = await fetch(request);
@@ -41,11 +47,7 @@ const getIdentity = async (id: number) => {
 
 export const authProvider = {
     login: login,
-    logout: () => {
-        localStorage.removeItem('username');
-        localStorage.removeItem('auth');
-        return Promise.resolve();
-    },
+    logout: logout,
     checkAuth: () =>
         localStorage.getItem('username') ? Promise.resolve() : Promise.reject(),
     checkError:  (error: any) => {
