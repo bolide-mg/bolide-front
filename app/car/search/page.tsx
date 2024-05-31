@@ -1,5 +1,4 @@
 import {Input} from "@headlessui/react";
-import SellCard from "@/components/SellCard";
 
 const Main = () => {
     return (
