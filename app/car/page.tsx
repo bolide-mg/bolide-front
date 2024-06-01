@@ -92,8 +92,39 @@ const Main = () => {
                         />
                     </div>
                 </div>
-                {/*TODO: create more section here ( about, recommendation, ... )*/}
+                <div className="w-screen flex justify-center items-center flex-col gap-20 text-text-base">
+                <div className="md:w-4/5 bg-opacity-grey rounded-xl backdrop-blur flex flex-col items-center py-16 gap-16">
+                    <Section
+                        text={<>
+                            <p className="font-semibold">À propos de nous</p>
+                            <br/>
+                            <p>Nous sommes passionnée par l'automobile et dédiée à fournir des véhicules de qualité à des prix compétitifs. Notre équipe est là pour vous conseiller et vous accompagner tout au long de votre achat.</p>
+                            <br/>
+                            <p>Notre mission est de rendre l'achat de voiture aussi simple et agréable que possible, en mettant l'accent sur la transparence et la satisfaction du client.</p>
+                        </>}
+                        image="https://th.bing.com/th/id/R.a701b4055fcaa63eba58a5a2205dcba8?rik=XzKpQj1V5SJJCA&riu=http%3a%2f%2fwww.itcjewelry.com%2fimg%2fillustration-1.png&ehk=9YYEaRBknefzGSHvi6JX1YfHQVgb%2fYC1OdUk0UucjKE%3d&risl=&pid=ImgRaw&r=0"
+                    />
+                </div>
             </div>
+            <div className="w-screen flex justify-center items-center flex-col gap-20 text-text-base">
+                <div className="md:w-4/5 bg-opacity-grey rounded-xl backdrop-blur flex flex-col items-center py-16 gap-16">
+                    <Section
+                        text={<>
+                            <p className="font-semibold">Recommandations</p>
+                            <br/>
+                            <p>Nos clients sont notre meilleure publicité. Voici ce qu'ils disent de nous :</p>
+                            <br/>
+                            <p><i>"Excellent service, très satisfait de mon achat!" - Andy N.</i></p>
+                            <p><i>"Des professionnels à l'écoute, je recommande vivement." - Miranto R.</i></p>
+                            <p><i>"Un large choix de voitures et des prix imbattables." - Tendry A.</i></p>
+                        </>}
+                        image="https://th.bing.com/th/id/R.a701b4055fcaa63eba58a5a2205dcba8?rik=XzKpQj1V5SJJCA&riu=http%3a%2f%2fwww.itcjewelry.com%2fimg%2fillustration-1.png&ehk=9YYEaRBknefzGSHvi6JX1YfHQVgb%2fYC1OdUk0UucjKE%3d&risl=&pid=ImgRaw&r=0"
+                        reverted
+                    />
+                </div>
+            </div>
+         </div>
+           
         </>
     )
 }
