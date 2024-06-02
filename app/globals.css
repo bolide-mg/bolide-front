@@ -4,20 +4,20 @@
 
 @layer components {
   .button-primary {
-    @apply bg-primary px-3 py-1.5 rounded text-base;
+    @apply bg-primary rounded text-light bg-opacity-90;
   }
 }
 
 h1 {
   font-size: 1.875rem;
   line-height: 2.25rem;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 h2 {
   font-size: 1.5rem;
   line-height: 2rem;
-  font-weight: 450;
+  font-weight: 550;
 }
 
 p {
@@ -31,4 +31,9 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+button {
+  padding: 0.375rem 0.75rem;
+  font-weight: 500;
 }
