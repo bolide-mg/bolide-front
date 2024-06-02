@@ -9,11 +9,14 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "#004E98",
-        secondary: "#3A6EA5",
+        primary: "#FF6700",
+        secondary: "#1D4972",
+        light: "#F6F4F3",
+        dark: "#0F111A",
         grey: "#C0C0C0",
-        base: "#EBEBEB",
-        alert: "#FF6700",
+        warning: "#FDA121",
+        success: "#63C132",
+        error: "#ED2B33",
         opacity: {
           grey: "rgba(192,192,192,0.35)",
           base: "rgba(235,235,235,0.61)"
