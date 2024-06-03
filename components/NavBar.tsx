@@ -69,7 +69,7 @@ const Main = () => {
                         </div>
                     </div>
 
-                    <DisclosurePanel className="sm:hidden bg-base text-text-base">
+                    <DisclosurePanel className="sm:hidden bg-light text-text-base">
                         <div className="space-y-1 px-2 pb-3 pt-2 border-b border-primary backdrop-brightness-100">
                             {navigation.map((item) => (
                                 <DisclosureButton
