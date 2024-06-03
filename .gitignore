@@ -5,6 +5,7 @@
 /.pnp
 .pnp.js
 .yarn/install-state.gz
+.pnpm-lock.json
 
 # testing
 /coverage
@@ -34,7 +35,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-/pnpm-lock.yaml
-/.idea/inspectionProfiles/Project_Default.xml
-/.idea/vcs.xml
-/.idea/watcherTasks.xml
+
+# editor
+.vscode
+.idea
