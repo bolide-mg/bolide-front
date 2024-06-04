@@ -11,8 +11,8 @@ import LinkMainPage from "@/components/LinkMainPage";
 
 const navigation = [
     { name: 'Main Page', href: '/car', current: true },
-    { name: 'Search', href: '/car/1', current: false },
-    { name: 'About', href: '/car/search', current: false },
+    { name: 'Search', href: '/car/search', current: false },
+    { name: 'About', href: '/car/1', current: false },
     { name: 'Admin', href: '/admin', current: false },
 ]
 
