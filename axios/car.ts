@@ -1,17 +1,17 @@
 import instance from "@/axios/default";
 import axios from "axios";
-import {Car} from "@/axios/model/Car";
+import { Car } from "@/axios/model/Car";
 
-const carAxios = axios.create(instance.defaults)
-carAxios.defaults.baseURL += "/car"
+const carAxios = axios.create(instance.defaults);
+carAxios.defaults.baseURL += "/car";
 
-export const getAllCar = (): Promise<Car[]> => carAxios.get("")
-    .then(r=>r.data);
+export const getAllCar = (): Promise<Car[]> =>
+  carAxios.get("").then((r) => r.data);
 
-export const getCarById = (id: typeof Car.prototype.id): Promise<Car> => carAxios.get(`/${id}`)
-    .then(r=>r.data);
+export const getCarById = (id: typeof Car.prototype.id): Promise<Car> =>
+  carAxios.get(`/${id}`).then((r) => r.data);
 
-export const postCar = (car: Car): Promise<Car> => carAxios.post("", car)
-    .then(r=>r.data);
+export const postCar = (car: Car): Promise<Car> =>
+  carAxios.post("", car).then((r) => r.data);
 
 export default carAxios;
