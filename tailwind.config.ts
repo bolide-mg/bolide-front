@@ -25,7 +25,7 @@ const config: Config = {
         text: {
           base: "rgb(0,0,0)",
           hover: "rgb(66,77,78)",
-        }
+        },
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -33,8 +33,8 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       fontFamily: {
-        display: 'bold'
-      }
+        display: "bold",
+      },
     },
   },
   plugins: [],
