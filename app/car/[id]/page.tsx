@@ -1,6 +1,7 @@
 import AppointmentModal from "@/components/Modal/AppointmentModal";
+import { FC } from "react";
 
-const Main = () => {
+const Main: FC<{ params: { id: number } }> = ({ params }) => {
   //TODO: Fill this about components with the about XD... of a car
 
   return (
@@ -12,7 +13,7 @@ const Main = () => {
           </div>
           <div className="w-52 bg-light flex flex-col items-center p-8 gap-8 rounded">
             <p className="font-bold">Actions</p>
-            <AppointmentModal />
+            <AppointmentModal idCar={params.id} />
           </div>
         </div>
         <div>description</div>

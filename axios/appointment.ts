@@ -8,6 +8,11 @@ appointmentAxios.defaults.baseURL += "/appointment";
 export const putAppointment = (
   appointment: Appointment,
 ): Promise<Appointment> =>
-  appointmentAxios.put("", appointment).then((r) => r.data);
+  appointmentAxios
+    .put("", appointment)
+    .then((r) => r.data)
+    .catch((err) => {
+      throw new Error("Failed to save appointment");
+    });
 
 export default appointmentAxios;

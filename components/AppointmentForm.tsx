@@ -5,6 +5,9 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { putAppointment } from "@/axios/appointment";
+import { Appointment } from "@/axios/model/Appointment";
+import { Car } from "@/axios/model/Car";
 
 const emailAdmin = "hello@bolide.mg";
 
@@ -18,7 +21,9 @@ const appointmentSchema = z.object({
 
 type AppointmentFormValues = z.infer<typeof appointmentSchema>;
 
-const AppointmentForm: React.FC = () => {
+const AppointmentForm: React.FC<{ idCar: typeof Car.prototype.id }> = ({
+  idCar,
+}) => {
   const {
     register,
     handleSubmit,
@@ -31,17 +36,19 @@ const AppointmentForm: React.FC = () => {
 
   const onSubmit: SubmitHandler<AppointmentFormValues> = async (data) => {
     try {
-      const response = await fetch("/appointment", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
+      const response = await putAppointment(
+        new Appointment(
+          data.name,
+          data.name,
+          data.email,
+          "",
+          data.phone,
+          data.date,
+          "",
+          idCar,
+        ),
+      );
 
-      if (!response.ok) {
-        throw new Error("Failed to save appointment");
-      }
       await fetch("/email", {
         method: "POST",
         headers: {

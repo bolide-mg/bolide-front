@@ -1,5 +1,5 @@
 export class Appointment {
-  id: number;
+  id?: number;
   name: string;
   first_name: string;
   email: string;
@@ -10,7 +10,6 @@ export class Appointment {
   id_car: number;
 
   constructor(
-    id: number,
     name: string,
     first_name: string,
     email: string,
@@ -19,6 +18,7 @@ export class Appointment {
     appointment_date: Date,
     status: string,
     id_car: number,
+    id?: number,
   ) {
     this.id = id;
     this.name = name;

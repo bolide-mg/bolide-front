@@ -75,7 +75,7 @@ const Home: NextPage = () => (
       </div>
       <div className="mx-10">
         <h1>Prendre rendez-vous</h1>
-        <AppointmentForm />
+        <AppointmentForm idCar={1} />
       </div>
     </footer>
   </>
