@@ -15,12 +15,12 @@ export const postCar = (car: Car): Promise<Car> => carAxios.post("", car)
     .then(r=>r.data);
 
 export const searchCar = (
-    name?: string,
-    brand?: string,
-    model?: string,
-    motorType?: string
-) => carAxios.get("/search", {
-    params: {name, brand, model, motorType}
+    name: string,
+    brand: string,
+    model: string,
+    motorType: string
+): Promise<Car[]> => carAxios.get("/search", {
+    params: {name, brand, model, motorType},
 }).then(r=>r.data)
 
 export default carAxios;
