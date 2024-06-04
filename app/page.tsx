@@ -2,6 +2,7 @@ import { NextPage } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import heroImage from "@/assets/img/2024-AMG-CLE-COUPE.webp";
+import AppointmentForm from "@/components/AppointmentForm";
 
 const Home: NextPage = () => (
   <>
@@ -72,9 +73,9 @@ const Home: NextPage = () => (
           </div>
         </div>
       </div>
-      <div>
+      <div className="mx-10">
         <h1>Prendre rendez-vous</h1>
-        <div>TODO: forms</div>
+        <AppointmentForm />
       </div>
     </footer>
   </>

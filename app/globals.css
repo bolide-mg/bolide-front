@@ -37,3 +37,35 @@ button {
   padding: 0.375rem 0.75rem;
   font-weight: 500;
 }
+input-field {
+  width: 100%;
+  padding: 3px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: #000;
+}
+error-message {
+  color: red;
+  font-size: 0.6rem;
+  margin-top: 2px;
+}
+
+button-primary {
+  padding: 6px 14px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 12px;
+}
+
+button-primary:hover {
+  background-color: #0056b3;
+}
+
+label {
+  font-weight: bold;
+  font-size: 0.75rem;
+  margin-top: 2px;
+}
