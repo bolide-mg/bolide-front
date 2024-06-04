@@ -19,7 +19,8 @@ const config: Config = {
         error: "#ED2B33",
         opacity: {
           grey: "rgba(192,192,192,0.35)",
-          base: "rgba(235,235,235,0.61)"
+          base: "rgba(235,235,235,0.61)",
+          dark: "rgba(15,17,26,0.76)",
         },
         text: {
           base: "rgb(0,0,0)",
