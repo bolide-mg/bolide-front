@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Car } from "@/axios/model/Car";
 import { FC } from "react";
 
-const Main: FC<{ id: typeof Car.prototype.id }> = ({ id }) => {
+const Main: FC<{ car: Car }> = ({ car }) => {
   return (
     <div className="w-full h-64 bg-grey hover:bg-light transition flex border-b">
       <div className="w-3/12 bg-grey overflow-hidden">
@@ -13,10 +13,14 @@ const Main: FC<{ id: typeof Car.prototype.id }> = ({ id }) => {
           alt="image"
         />
       </div>
-      <div className="w-3/4 bg-light">
-        <p>description</p>
+      <div className="w-3/4 bg-light p-8 flex items-center justify-evenly">
+        <div>
+          <p className="font-bold">Description</p>
+          <p>{car.description}</p>
+          <p>Price: {car.price}€</p>
+        </div>
         {/*TODO: more description here*/}
-        <a href={`/car/${id}`}>detail</a>
+        <a href={`/car/${car.id}`}><button type="button" className="bg-secondary text-light rounded-md">detail</button></a>
       </div>
     </div>
   );
