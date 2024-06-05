@@ -1,6 +1,7 @@
 import AppointmentModal from "@/components/Modal/AppointmentModal";
 import { FC } from "react";
 import { getCarById } from "@/axios/car";
+import Divider from "@/components/style/Divider";
 
 const Main: FC<{ params: { id: number } }> = async ({ params }) => {
   //TODO: Fill this about components with the about XD... of a car
@@ -19,7 +20,7 @@ const Main: FC<{ params: { id: number } }> = async ({ params }) => {
               <p>Price: </p>
               <p className="font-mono">{car.price}€</p>
             </div>
-            <div className="w-full border border-dark"></div>
+            <Divider />
             <p className="font-bold">Actions</p>
             <AppointmentModal idCar={params.id} />
           </div>
