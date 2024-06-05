@@ -2,16 +2,16 @@
 
 import { Input } from "@headlessui/react";
 import SearchResult from "@/components/SearchResult";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import { Car } from "@/axios/model/Car";
-import {searchCar} from "@/axios/car";
+import { searchCar } from "@/axios/car";
 
 const Main = () => {
   const [resultCar, setResultCar] = useState<Car[]>([Car.prototype]);
-  const [search, setSearch] = useState("")
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
-    (async ()=>setResultCar(await searchCar(search, "", "", "")))()
+    (async () => setResultCar(await searchCar(search, "", "", "")))();
     // TODO: add brand, model, motor type
   }, [search]);
 
@@ -23,14 +23,16 @@ const Main = () => {
             type="text"
             placeholder="search"
             className="rounded-md border h-3/4 p-1"
-            onChange={e=>setSearch(e.target.value)}
+            onChange={(e) => setSearch(e.target.value)}
           />
         </div>
         <div className="min-h-full flex justify-center py-5">
           <div className="min-h-96 w-full md:w-3/4 rounded-xl flex items-center border flex-col overflow-hidden">
             {resultCar.length == 0
               ? "no result"
-              : resultCar.map((car) => <SearchResult key={Math.random()} car={car} />)}
+              : resultCar.map((car) => (
+                  <SearchResult key={Math.random()} car={car} />
+                ))}
           </div>
         </div>
       </div>

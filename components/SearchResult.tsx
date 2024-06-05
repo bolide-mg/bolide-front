@@ -20,7 +20,11 @@ const Main: FC<{ car: Car }> = ({ car }) => {
           <p>Price: {car.price}€</p>
         </div>
         {/*TODO: more description here*/}
-        <a href={`/car/${car.id}`}><button type="button" className="bg-secondary text-light rounded-md">detail</button></a>
+        <a href={`/car/${car.id}`}>
+          <button type="button" className="bg-secondary text-light rounded-md">
+            detail
+          </button>
+        </a>
       </div>
     </div>
   );

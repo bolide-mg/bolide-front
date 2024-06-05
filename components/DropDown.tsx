@@ -38,57 +38,16 @@ const DropDown = () => {
             <MenuItem>
               {({ focus }) => (
                 <a
-                  href="#"
+                  href="/admin"
                   className={classNames(
                     focus ? "bg-gray-100 text-primary" : "text-secondary",
                     "block px-4 py-2 text-sm",
                   )}
                 >
-                  Account settings
+                  Admin
                 </a>
               )}
             </MenuItem>
-            <MenuItem>
-              {({ focus }) => (
-                <a
-                  href="#"
-                  className={classNames(
-                    focus ? "bg-gray-100 text-primary" : "text-secondary",
-                    "block px-4 py-2 text-sm",
-                  )}
-                >
-                  Support
-                </a>
-              )}
-            </MenuItem>
-            <MenuItem>
-              {({ focus }) => (
-                <a
-                  href="#"
-                  className={classNames(
-                    focus ? "bg-gray-100 text-primary" : "text-secondary",
-                    "block px-4 py-2 text-sm",
-                  )}
-                >
-                  License
-                </a>
-              )}
-            </MenuItem>
-            <form method="POST" action="#">
-              <MenuItem>
-                {({ focus }) => (
-                  <button
-                    type="submit"
-                    className={classNames(
-                      focus ? "bg-gray-100 text-primary" : "text-secondary",
-                      "block w-full px-4 py-2 text-left text-sm",
-                    )}
-                  >
-                    Sign out
-                  </button>
-                )}
-              </MenuItem>
-            </form>
           </div>
         </MenuItems>
       </Transition>
