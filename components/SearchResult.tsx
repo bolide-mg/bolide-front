@@ -1,6 +1,8 @@
 import Image from "next/image";
+import { Car } from "@/axios/model/Car";
+import { FC } from "react";
 
-const Main = () => {
+const Main: FC<{ id: typeof Car.prototype.id }> = ({ id }) => {
   return (
     <div className="w-full h-64 bg-grey hover:bg-light transition flex border-b">
       <div className="w-3/12 bg-grey overflow-hidden">
@@ -14,7 +16,7 @@ const Main = () => {
       <div className="w-3/4 bg-light">
         <p>description</p>
         {/*TODO: more description here*/}
-        <a href="/car/1">detail</a>
+        <a href={`/car/${id}`}>detail</a>
       </div>
     </div>
   );

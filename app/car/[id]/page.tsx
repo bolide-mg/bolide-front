@@ -1,10 +1,10 @@
 import AppointmentModal from "@/components/Modal/AppointmentModal";
 import { FC } from "react";
-import {Car} from "@/axios/model/Car";
+import { getCarById } from "@/axios/car";
 
-const Main: FC<{ params: { id: number } }> = ({ params }) => {
+const Main: FC<{ params: { id: number } }> = async ({ params }) => {
   //TODO: Fill this about components with the about XD... of a car
-  const car = Car.prototype;
+  const car = await getCarById(params.id);
 
   return (
     <>
@@ -16,11 +16,12 @@ const Main: FC<{ params: { id: number } }> = ({ params }) => {
           <div className="w-52 bg-light flex flex-col items-center p-8 gap-8 rounded">
             <p className="font-bold">This car</p>
             <div>
-              <p>Price: </p><p className="font-mono">{car.price | 0}€</p>
+              <p>Price: </p>
+              <p className="font-mono">{car.price}€</p>
             </div>
             <div className="w-full border border-dark"></div>
             <p className="font-bold">Actions</p>
-            <AppointmentModal idCar={params.id}/>
+            <AppointmentModal idCar={params.id} />
           </div>
         </div>
         <div className="p-8">
@@ -28,9 +29,7 @@ const Main: FC<{ params: { id: number } }> = ({ params }) => {
           <p className="">Name: {car.name}</p>
           <p className="">#{car.id}</p>
           <p className="">Description</p>
-          <p>
-            {car.description}
-          </p>
+          <p>{car.description}</p>
           <p className="">Brand: {car.brand}</p>
           <p className="">Model: {car.model}</p>
           <p className="">Color: {car.color}</p>

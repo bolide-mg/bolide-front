@@ -22,7 +22,7 @@ const Main = () => {
           <div className="min-h-96 w-full md:w-3/4 rounded-xl flex items-center border flex-col overflow-hidden">
             {resultCar.length == 0
               ? "no result"
-              : resultCar.map((car) => <SearchResult key={Math.random()} />)}
+              : resultCar.map((car) => <SearchResult key={Math.random()} id={car.id} />)}
           </div>
         </div>
       </div>
