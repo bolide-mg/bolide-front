@@ -9,16 +9,21 @@ import useSearch from "@/hooks/useSearch";
 
 const Main = () => {
   const [resultCar, setResultCar] = useState<Car[]>([]);
-  const search = useSearch("", 1000);
+  const searchName = useSearch("", 1000);
+  const searchBrand = useSearch("", 1000);
+  const searchModel = useSearch("", 1000);
+  const searchMotorType = useSearch("", 1000);
 
   useEffect(() => {
-    if (search.textToSearch == ""){
+    if (searchName.textToSearch == "" && searchBrand.textToSearch =="" && searchModel.textToSearch == "" && searchMotorType.textToSearch == ""){
       getAllCar().then(r=>setResultCar(r))
     } else {
-      searchCar(search.textToSearch, "", "", "").then(r=>setResultCar(r))
+      searchCar(searchName.textToSearch, searchBrand.textToSearch, searchModel.textToSearch, searchMotorType.textToSearch).then(r=>setResultCar(r))
     }
-    // TODO: add brand, model, motor type
-  }, [search.text, search.textToSearch]);
+  }, [
+    searchName.text, searchBrand.text, searchModel.text, searchMotorType.text,
+    searchName.textToSearch, searchBrand.textToSearch, searchModel.textToSearch, searchMotorType.textToSearch,
+  ]);
 
   return (
     <>
@@ -28,12 +33,30 @@ const Main = () => {
             type="text"
             placeholder="search"
             className="rounded-md border w-1/2 h-3/4 p-1"
-            onChange={search.onChange}
+            onChange={searchName.onChange}
+          />
+          <Input
+            type="text"
+            placeholder="search brand"
+            className="rounded-md border w-1/4 h-3/4 p-1 mr-2"
+            onChange={searchBrand.onChange}
+          />
+          <Input
+            type="text"
+            placeholder="search model"
+            className="rounded-md border w-1/4 h-3/4 p-1 mr-2"
+            onChange={searchModel.onChange}
+          />
+          <Input
+            type="text"
+            placeholder="search motor type"
+            className="rounded-md border w-1/4 h-3/4 p-1"
+            onChange={searchMotorType.onChange}
           />
         </div>
         <div className="min-h-full flex justify-center py-5">
           <div className="min-h-96 w-full md:w-3/4 md:rounded-xl flex items-center border flex-col overflow-hidden">
-            {resultCar.length == 0
+            {resultCar.length === 0
               ? "no result"
               : resultCar.map((car) => (
                   <SearchResult key={Math.random()} car={car} />
