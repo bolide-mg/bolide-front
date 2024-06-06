@@ -4,14 +4,18 @@ import { Input } from "@headlessui/react";
 import SearchResult from "@/components/SearchResult";
 import { useEffect, useState } from "react";
 import { Car } from "@/axios/model/Car";
-import { searchCar } from "@/axios/car";
+import {getAllCar, searchCar} from "@/axios/car";
 
 const Main = () => {
   const [resultCar, setResultCar] = useState<Car[]>([]);
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    (async () => setResultCar(await searchCar(search, "", "", "")))();
+    if (search.trim() == ""){
+      getAllCar().then(r=>setResultCar(r))
+    } else {
+      searchCar(search, "", "", "").then(r=>setResultCar(r))
+    }
     // TODO: add brand, model, motor type
   }, [search]);
 
