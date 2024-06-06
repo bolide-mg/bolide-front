@@ -1,24 +1,28 @@
 "use client"; // remove this line if you choose Pages Router
-import { Admin, Resource, ListGuesser, EditGuesser } from "react-admin";
-import jsonServerProvider from "ra-data-json-server";
 
-const dataProvider = jsonServerProvider("https://jsonplaceholder.typicode.com");
+import {
+  Admin,
+  Resource,
+  ListGuesser,
+  EditGuesser,
+  CreateBase,
+} from "react-admin";
+import jsonAdminProvider from "@/axios/jsonAdminProvider";
 
 const AdminApp = () => (
-  <Admin dataProvider={dataProvider}>
+  <Admin dataProvider={jsonAdminProvider}>
     <Resource
-      name="users"
+      name="car"
       list={ListGuesser}
       edit={EditGuesser}
-      recordRepresentation="name"
+      create={CreateBase}
     />
     <Resource
-      name="posts"
+      name="appointment"
       list={ListGuesser}
       edit={EditGuesser}
-      recordRepresentation="title"
+      create={CreateBase}
     />
-    <Resource name="comments" list={ListGuesser} edit={EditGuesser} />
   </Admin>
 );
 

@@ -16,14 +16,23 @@ const Main: FC<{ car: Car }> = ({ car }) => {
       </div>
       <div className="w-3/4 bg-light p-8 flex items-center justify-evenly">
         <div className="flex flex-col gap-4">
-          <p className="font-black text-5xl">{car.name}/{car.brand}/{car.motor_type}</p>
+          <p className="font-black text-5xl">
+            {car.name}/{car.brand}/{car.motor_type}
+          </p>
           <p className="font-bold">Description</p>
           <p>{car.description}</p>
         </div>
         <div className="flex flex-col gap-4">
           <p>Price: {car.price}€</p>
           <Divider />
-          <a href={`/car/${car.id}`}><button type="button" className="bg-secondary text-light rounded-md">detail</button></a>
+          <a href={`/car/${car.id}`}>
+            <button
+              type="button"
+              className="bg-secondary text-light rounded-md"
+            >
+              detail
+            </button>
+          </a>
         </div>
         {/*TODO: more description here*/}
       </div>
