@@ -27,6 +27,8 @@ const AppointmentForm: React.FC = () => {
     reset,
   } = useForm<AppointmentFormValues>({
     resolver: zodResolver(appointmentSchema),
+    mode: "onBlur", 
+    reValidateMode: "onChange" 
   });
 
   const onSubmit: SubmitHandler<AppointmentFormValues> = async (data) => {
@@ -50,6 +52,7 @@ const AppointmentForm: React.FC = () => {
         body: JSON.stringify({ ...data, emailAdmin }),
       });
       alert("Rendez-vous pris avec succès");
+      reset(); 
     } catch (error) {
       console.error(error);
       alert("Erreur lors de la prise de rendez-vous");
@@ -88,7 +91,7 @@ const AppointmentForm: React.FC = () => {
           render={({ field }) => (
             <DatePicker
               selected={field.value}
-              onChange={field.onChange}
+              onChange={(date) => field.onChange(date)}
               className="input-field"
               dateFormat="dd/MM/yyyy"
             />
