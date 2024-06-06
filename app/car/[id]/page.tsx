@@ -1,18 +1,29 @@
 import AppointmentModal from "@/components/Modal/AppointmentModal";
-import { FC } from "react";
+import React, { FC } from "react";
 import { getCarById } from "@/axios/car";
 import Divider from "@/components/style/Divider";
+import {getImageByCarId} from "@/axios/image";
+import {Image} from "@/axios/model/Image";
 
 const Main: FC<{ params: { id: number } }> = async ({ params }) => {
   //TODO: Fill this about components with the about XD... of a car
   const car = await getCarById(params.id);
+  let images: Image[] = [];
+
+  try {
+    images = await getImageByCarId(params.id);
+  } catch {}
 
   return (
     <>
       <div className="w-full min-h-full p-8 text-text-base">
         <div className="flex w-full justify-evenly">
           <div className="h-96 w-4/5 flex items-center justify-center bg-light rounded-xl">
-            image
+            {
+              images.length == 0 ?
+                  "No images" :
+                  images.map(image=><img src={image.url} alt="image voiture"/>)
+            }
           </div>
           <div className="w-52 bg-light flex flex-col items-center p-8 gap-8 rounded">
             <p className="font-bold">This car</p>
