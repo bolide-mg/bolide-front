@@ -16,12 +16,16 @@ const Main: FC<{ car: Car }> = ({ car }) => {
   return (
     <div className="w-full h-64 bg-grey hover:bg-light transition flex border-b">
       <div className="w-3/12 bg-grey overflow-hidden flex justify-center items-center">
-        <Image
-          src={image}
-          height={500}
-          width={500}
-          alt="image"
-        />
+        {
+          image ?
+              <Image
+                src={image}
+                height={500}
+                width={500}
+                alt="image"
+              />
+              :<></>
+        }
       </div>
       <div className="w-3/4 bg-light p-8 flex items-center justify-evenly">
         <div className="flex flex-col gap-4">

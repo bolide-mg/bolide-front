@@ -5,19 +5,20 @@ import SearchResult from "@/components/SearchResult";
 import { useEffect, useState } from "react";
 import { Car } from "@/axios/model/Car";
 import {getAllCar, searchCar} from "@/axios/car";
+import useSearch from "@/hooks/useSearch";
 
 const Main = () => {
   const [resultCar, setResultCar] = useState<Car[]>([]);
-  const [search, setSearch] = useState("");
+  const search = useSearch("", 1000);
 
   useEffect(() => {
-    if (search.trim() == ""){
+    if (search.textToSearch == ""){
       getAllCar().then(r=>setResultCar(r))
     } else {
-      searchCar(search, "", "", "").then(r=>setResultCar(r))
+      searchCar(search.textToSearch, "", "", "").then(r=>setResultCar(r))
     }
     // TODO: add brand, model, motor type
-  }, [search]);
+  }, [search.text, search.textToSearch]);
 
   return (
     <>
@@ -27,7 +28,7 @@ const Main = () => {
             type="text"
             placeholder="search"
             className="rounded-md border w-1/2 h-3/4 p-1"
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={search.onChange}
           />
         </div>
         <div className="min-h-full flex justify-center py-5">
