@@ -1,16 +1,25 @@
 import Image from "next/image";
 import { Car } from "@/axios/model/Car";
-import { FC } from "react";
+import {FC, useEffect, useState} from "react";
 import Divider from "@/components/style/Divider";
+import {getImageByCarId} from "@/axios/image";
 
 const Main: FC<{ car: Car }> = ({ car }) => {
+  const [image, setImage] = useState("")
+
+  useEffect(() => {
+    getImageByCarId(car.id).then(r=> {
+      setImage(r[0].url)
+    })
+  }, []);
+
   return (
     <div className="w-full h-64 bg-grey hover:bg-light transition flex border-b">
-      <div className="w-3/12 bg-grey overflow-hidden">
+      <div className="w-3/12 bg-grey overflow-hidden flex justify-center items-center">
         <Image
-          src="https://th.bing.com/th/id/R.a701b4055fcaa63eba58a5a2205dcba8?rik=XzKpQj1V5SJJCA&riu=http%3a%2f%2fwww.itcjewelry.com%2fimg%2fillustration-1.png&ehk=9YYEaRBknefzGSHvi6JX1YfHQVgb%2fYC1OdUk0UucjKE%3d&risl=&pid=ImgRaw&r=0"
-          height={300}
-          width={300}
+          src={image}
+          height={500}
+          width={500}
           alt="image"
         />
       </div>

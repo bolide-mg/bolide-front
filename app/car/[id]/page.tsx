@@ -4,6 +4,7 @@ import { getCarById } from "@/axios/car";
 import Divider from "@/components/style/Divider";
 import {getImageByCarId} from "@/axios/image";
 import {Image} from "@/axios/model/Image";
+import Carousel from "@/components/Carousel";
 
 const Main: FC<{ params: { id: number } }> = async ({ params }) => {
   //TODO: Fill this about components with the about XD... of a car
@@ -19,11 +20,7 @@ const Main: FC<{ params: { id: number } }> = async ({ params }) => {
       <div className="w-full min-h-full p-8 text-text-base">
         <div className="flex w-full justify-evenly">
           <div className="h-96 w-4/5 flex items-center justify-center bg-light rounded-xl">
-            {
-              images.length == 0 ?
-                  "No images" :
-                  images.map(image=><img src={image.url} alt="image voiture"/>)
-            }
+            <Carousel images={images} />
           </div>
           <div className="w-52 bg-light flex flex-col items-center p-8 gap-8 rounded">
             <p className="font-bold">This car</p>

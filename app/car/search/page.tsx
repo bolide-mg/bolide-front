@@ -7,7 +7,7 @@ import { Car } from "@/axios/model/Car";
 import { searchCar } from "@/axios/car";
 
 const Main = () => {
-  const [resultCar, setResultCar] = useState<Car[]>([Car.prototype]);
+  const [resultCar, setResultCar] = useState<Car[]>([]);
   const [search, setSearch] = useState("");
 
   useEffect(() => {
