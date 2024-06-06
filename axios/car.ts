@@ -19,11 +19,18 @@ export const searchCar = (
   brand: string,
   model: string,
   motorType: string,
-): Promise<Car[]> =>
-  carAxios
-    .get("/search", {
-      params: { name, brand, model, motorType },
-    })
-    .then((r) => r.data);
+): Promise<Car[]> => {
+  // Construct the URL with the search parameters
+  const searchParams = new URLSearchParams();
+  if (name) searchParams.append("name", name);
+  if (brand) searchParams.append("brand", brand);
+  if (model) searchParams.append("model", model);
+  if (motorType) searchParams.append("motorType", motorType);
+
+  const url = `/search?${searchParams.toString()}`;
+  console.log(url);
+  // Send the GET request with the search parameters
+  return carAxios.get(url).then((r) => r.data);
+};
 
 export default carAxios;
