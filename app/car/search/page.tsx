@@ -1,35 +1,47 @@
-"use client"
+"use client";
 
-import {Input} from "@headlessui/react";
+import { Input } from "@headlessui/react";
 import SearchResult from "@/components/SearchResult";
-import {useState} from "react";
-import {Car} from "@/axios/model/Car";
+import { useEffect, useState } from "react";
+import { Car } from "@/axios/model/Car";
+import {getAllCar, searchCar} from "@/axios/car";
 
 const Main = () => {
-    const [resultCar, setResultCar] = useState<Car[]>([Car.prototype])
+  const [resultCar, setResultCar] = useState<Car[]>([]);
+  const [search, setSearch] = useState("");
 
-    return (
-        <>
-            <div className="w-full min-h-full bg-white">
-                <div className="flex w-full h-16 items-center justify-center">
-                    <Input
-                        type="text"
-                        placeholder="search"
-                        className="rounded-md border h-3/4 p-1"
-                    />
-                </div>
-                <div className="min-h-full flex justify-center py-5">
-                    <div className="min-h-96 w-full md:w-3/4 rounded-xl flex items-center border flex-col overflow-hidden">
-                        {
-                            resultCar.length == 0 ?
-                                "no result" :
-                                resultCar.map(car => <SearchResult key={Math.random()} />)
-                        }
-                    </div>
-                </div>
-            </div>
-        </>
-    )
-}
+  useEffect(() => {
+    if (search.trim() == ""){
+      getAllCar().then(r=>setResultCar(r))
+    } else {
+      searchCar(search, "", "", "").then(r=>setResultCar(r))
+    }
+    // TODO: add brand, model, motor type
+  }, [search]);
+
+  return (
+    <>
+      <div className="w-full min-h-full bg-white">
+        <div className="flex w-full h-16 items-center justify-center">
+          <Input
+            type="text"
+            placeholder="search"
+            className="rounded-md border w-1/2 h-3/4 p-1"
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </div>
+        <div className="min-h-full flex justify-center py-5">
+          <div className="min-h-96 w-full md:w-3/4 md:rounded-xl flex items-center border flex-col overflow-hidden">
+            {resultCar.length == 0
+              ? "no result"
+              : resultCar.map((car) => (
+                  <SearchResult key={Math.random()} car={car} />
+                ))}
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
 
 export default Main;

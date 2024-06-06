@@ -1,12 +1,14 @@
 import axios from "axios";
 
 const instance = axios.create({
-    baseURL: "http://localhost:8080"
+  baseURL: "http://localhost:8080",
 });
 
 instance.interceptors.response.use(
-    r=>r,
-    error => {console.error(error)}
-)
+  (r) => r,
+  (error) => {
+    console.error(error);
+  },
+);
 
 export default instance;
