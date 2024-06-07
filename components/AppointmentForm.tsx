@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -13,9 +13,11 @@ const emailAdmin = "hello@bolide.mg";
 
 const appointmentSchema = z.object({
   name: z.string().min(1, { message: "Le nom est requis" }),
+  firstName: z.string().min(1, { message: "Le prénom est requis" }),
   email: z.string().email({ message: "Email invalide" }),
+  message: z.string().optional(),
   phone: z.string().min(10, { message: "Le numéro de téléphone est requis" }),
-  date: z.date({ required_error: "La date est requise" }),
+  date: z.date({ message: "La date est requise" }),
   time: z.string().min(1, { message: "L'heure est requise" }),
 });
 
@@ -34,21 +36,29 @@ const AppointmentForm: React.FC<{ idCar: typeof Car.prototype.id }> = ({
     resolver: zodResolver(appointmentSchema),
   });
 
+  useEffect(() => {
+    console.log(errors);
+  }, [errors]);
+
   const onSubmit: SubmitHandler<AppointmentFormValues> = async (data) => {
     try {
+      const appointmentDate = new Date(
+        `${data.date.toISOString()} ${data.time}`,
+      );
+      console.log(appointmentDate);
       const response = await putAppointment(
         new Appointment(
           data.name,
-          data.name,
+          data.firstName,
           data.email,
-          "",
+          data.message || "",
           data.phone,
-          data.date,
-          "",
+          appointmentDate,
+          "pending",
           idCar,
         ),
       );
-
+      console.log(response);
       await fetch("/email", {
         method: "POST",
         headers: {
@@ -72,6 +82,14 @@ const AppointmentForm: React.FC<{ idCar: typeof Car.prototype.id }> = ({
       </div>
 
       <div className="flex flex-col">
+        <label>Prénom</label>
+        <input type="text" {...register("firstName")} className="input-field" />
+        {errors.firstName && (
+          <p className="error-message">{errors.firstName.message}</p>
+        )}
+      </div>
+
+      <div className="flex flex-col">
         <label>Email</label>
         <input type="email" {...register("email")} className="input-field" />
         {errors.email && (
@@ -84,6 +102,14 @@ const AppointmentForm: React.FC<{ idCar: typeof Car.prototype.id }> = ({
         <input type="tel" {...register("phone")} className="input-field" />
         {errors.phone && (
           <p className="error-message">{errors.phone.message}</p>
+        )}
+      </div>
+
+      <div className="flex flex-col">
+        <label>Message</label>
+        <textarea {...register("message")} className="input-field" />
+        {errors.message && (
+          <p className="error-message">{errors.message.message}</p>
         )}
       </div>
 
@@ -115,7 +141,11 @@ const AppointmentForm: React.FC<{ idCar: typeof Car.prototype.id }> = ({
         {errors.time && <p className="error-message">{errors.time.message}</p>}
       </div>
 
-      <button type="submit" className="button-primary">
+      <button
+        type="submit"
+        onClick={handleSubmit(onSubmit)}
+        className="button-primary"
+      >
         Valider
       </button>
     </form>
