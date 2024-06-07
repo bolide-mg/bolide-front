@@ -29,11 +29,7 @@ const jsonProvider: DataProvider = {
     };
     const url = `${apiUrl}/${resource}?${stringify.stringify(query)}`;
 
-    const result = await httpClient(url, {
-      headers: new Headers({
-        'Authorization': `${localStorage.getItem("auth")}`
-      })
-    });
+    const result = await httpClient(url);
 
     return {
       data: result.json,
