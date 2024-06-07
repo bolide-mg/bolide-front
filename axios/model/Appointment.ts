@@ -7,7 +7,7 @@ export class Appointment {
   email: string;
   message: string;
   contact: string;
-  appointment_date: Date;
+  appointmentDate: string;
   status: string;
   idCar: Car;
 
@@ -17,7 +17,7 @@ export class Appointment {
     email: string,
     message: string,
     contact: string,
-    appointment_date: Date,
+    appointmentDate: string,
     status: string,
     car: Car,
     id?: number,
@@ -28,7 +28,7 @@ export class Appointment {
     this.email = email;
     this.message = message;
     this.contact = contact;
-    this.appointment_date = appointment_date;
+    this.appointmentDate = appointmentDate;
     this.status = status;
     this.idCar = car;
   }

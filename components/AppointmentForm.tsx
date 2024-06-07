@@ -39,10 +39,8 @@ const AppointmentForm: React.FC<{ idCar: typeof Car.prototype.id }> = ({
 
   const onSubmit: SubmitHandler<AppointmentFormValues> = async (data) => {
     try {
-      const appointmentDate = new Date(
-        `${data.date.toISOString()} ${data.time}`,
-      );
-      
+      const appointmentDate = `${data.date.toISOString().split("T")[0]}T${data.time}:00Z`;
+
       const car = await getCarById(idCar);
 
       const response = await putAppointment(
