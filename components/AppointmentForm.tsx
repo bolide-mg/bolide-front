@@ -1,14 +1,15 @@
 "use client";
 import React from "react";
-import { useForm, SubmitHandler, Controller } from "react-hook-form";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
+import {Controller, SubmitHandler, useForm} from "react-hook-form";
+import {z} from "zod";
+import {zodResolver} from "@hookform/resolvers/zod";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { putAppointment } from "@/axios/appointment";
-import { Appointment } from "@/axios/model/Appointment";
-import { Car } from "@/axios/model/Car";
+import {putAppointment} from "@/axios/appointment";
+import {Appointment} from "@/axios/model/Appointment";
+import {Car} from "@/axios/model/Car";
 import {getCarById} from "@/axios/car";
+import {toast} from "react-toastify";
 
 const emailAdmin = "hello@bolide.mg";
 
@@ -63,10 +64,9 @@ const AppointmentForm: React.FC<{ idCar: typeof Car.prototype.id }> = ({
         },
         body: JSON.stringify({ ...data, emailAdmin }),
       });
-      alert("Rendez-vous pris avec succès");
+      toast.success("Rendez-vous pris avec succès")
     } catch (error) {
-      console.error(error);
-      alert("Erreur lors de la prise de rendez-vous");
+      toast.error("Erreur lors de la prise de rendez-vous");
     }
   };
 
@@ -141,7 +141,6 @@ const AppointmentForm: React.FC<{ idCar: typeof Car.prototype.id }> = ({
 
         <button
           type="submit"
-          onClick={handleSubmit(onSubmit)}
           className="button-primary"
         >
           Valider

@@ -28,7 +28,6 @@ export const searchCar = (
   if (motorType) searchParams.append("motorType", motorType);
 
   const url = `/search?${searchParams.toString()}`;
-  console.log(url);
   // Send the GET request with the search parameters
   return carAxios.get(url).then((r) => r.data);
 };
