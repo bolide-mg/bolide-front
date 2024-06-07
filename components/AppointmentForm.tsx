@@ -8,6 +8,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { putAppointment } from "@/axios/appointment";
 import { Appointment } from "@/axios/model/Appointment";
 import { Car } from "@/axios/model/Car";
+import {getCarById} from "@/axios/car";
 
 const emailAdmin = "hello@bolide.mg";
 
@@ -36,6 +37,8 @@ const AppointmentForm: React.FC<{ idCar: typeof Car.prototype.id }> = ({
 
   const onSubmit: SubmitHandler<AppointmentFormValues> = async (data) => {
     try {
+      const car = await getCarById(idCar);
+
       const response = await putAppointment(
         new Appointment(
           data.name,
@@ -45,7 +48,7 @@ const AppointmentForm: React.FC<{ idCar: typeof Car.prototype.id }> = ({
           data.phone,
           data.date,
           "",
-          idCar,
+          car,
         ),
       );
 
