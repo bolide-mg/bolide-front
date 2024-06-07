@@ -1,4 +1,6 @@
-"use client"; // remove this line if you choose Pages Router
+"use client"
+
+import authProvider from "@/Provider/authProvider";
 
 import {
   Admin,
@@ -10,7 +12,7 @@ import {
 import jsonAdminProvider from "@/axios/jsonAdminProvider";
 
 const AdminApp = () => (
-  <Admin dataProvider={jsonAdminProvider}>
+  <Admin dataProvider={jsonAdminProvider}  authProvider={authProvider}>
     <Resource
       name="car"
       list={ListGuesser}
