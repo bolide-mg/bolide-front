@@ -6,10 +6,12 @@ const Main = ({
   show,
   onClose,
   children,
+  title
 }: {
   show: boolean;
   onClose: () => void;
   children: React.ReactNode;
+  title?: string;
 }) => {
   return (
     <div
@@ -21,6 +23,7 @@ const Main = ({
       ></div>
       <div className="h-4/5 w-3/5 bg-light flex flex-col rounded-xl overflow-hidden">
         <div className="w-full p-4 flex justify-end border-b border-light">
+          <p className="w-full text-center font-bold m-auto">{title}</p>
           <button
             type="button"
             className="bg-error text-light rounded-xl"

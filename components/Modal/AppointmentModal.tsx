@@ -23,7 +23,7 @@ const Main: FC<{ idCar: typeof Car.prototype.id }> = ({ idCar }) => {
       >
         Book
       </button>
-      <Modal onClose={onCloseModal} show={show}>
+      <Modal onClose={onCloseModal} show={show} title="Create appointment">
         <AppointmentForm idCar={idCar} />
       </Modal>
     </>

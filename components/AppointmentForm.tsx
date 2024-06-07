@@ -64,60 +64,62 @@ const AppointmentForm: React.FC<{ idCar: typeof Car.prototype.id }> = ({
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-2">
-      <div className="flex flex-col">
-        <label>Nom</label>
-        <input type="text" {...register("name")} className="input-field" />
-        {errors.name && <p className="error-message">{errors.name.message}</p>}
-      </div>
+    <form onSubmit={handleSubmit(onSubmit)} className="h-full w-full flex flex-col items-center">
+      <div className="flex flex-col gap-2 justify-evenly h-full w-4/5">
+        <div className="flex flex-col">
+          <label>Nom</label>
+          <input type="text" {...register("name")} className="input-field"/>
+          {errors.name && <p className="error-message">{errors.name.message}</p>}
+        </div>
 
-      <div className="flex flex-col">
-        <label>Email</label>
-        <input type="email" {...register("email")} className="input-field" />
-        {errors.email && (
-          <p className="error-message">{errors.email.message}</p>
-        )}
-      </div>
-
-      <div className="flex flex-col">
-        <label>Téléphone</label>
-        <input type="tel" {...register("phone")} className="input-field" />
-        {errors.phone && (
-          <p className="error-message">{errors.phone.message}</p>
-        )}
-      </div>
-
-      <div className="flex flex-col">
-        <label>Date</label>
-        <Controller
-          name="date"
-          control={control}
-          render={({ field }) => (
-            <DatePicker
-              selected={field.value}
-              onChange={field.onChange}
-              className="input-field"
-              dateFormat="dd/MM/yyyy"
-            />
+        <div className="flex flex-col">
+          <label>Email</label>
+          <input type="email" {...register("email")} className="input-field"/>
+          {errors.email && (
+              <p className="error-message">{errors.email.message}</p>
           )}
-        />
-        {errors.date && <p className="error-message">{errors.date.message}</p>}
-      </div>
+        </div>
 
-      <div className="flex flex-col">
-        <label>Heure</label>
-        <input
-          type="time"
-          {...register("time")}
-          className="input-field"
-          step="60"
-        />
-        {errors.time && <p className="error-message">{errors.time.message}</p>}
-      </div>
+        <div className="flex flex-col">
+          <label>Téléphone</label>
+          <input type="tel" {...register("phone")} className="input-field"/>
+          {errors.phone && (
+              <p className="error-message">{errors.phone.message}</p>
+          )}
+        </div>
 
-      <button type="submit" className="button-primary">
-        Valider
-      </button>
+        <div className="flex flex-col">
+          <label>Date</label>
+          <Controller
+              name="date"
+              control={control}
+              render={({field}) => (
+                  <DatePicker
+                      selected={field.value}
+                      onChange={field.onChange}
+                      className="input-field"
+                      dateFormat="dd/MM/yyyy"
+                  />
+              )}
+          />
+          {errors.date && <p className="error-message">{errors.date.message}</p>}
+        </div>
+
+        <div className="flex flex-col">
+          <label>Heure</label>
+          <input
+              type="time"
+              {...register("time")}
+              className="input-field"
+              step="60"
+          />
+          {errors.time && <p className="error-message">{errors.time.message}</p>}
+        </div>
+
+        <button type="submit" className="button-primary">
+          Valider
+        </button>
+      </div>
     </form>
   );
 };
