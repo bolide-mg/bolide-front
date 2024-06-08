@@ -6,9 +6,9 @@ export class Car {
   model: string;
   price: number;
   color: string;
-  motor_type: string;
+  motorType: string;
   power: number;
-  place_number: number;
+  placeNumber: number;
   status: number;
   type: string;
 
@@ -20,7 +20,7 @@ export class Car {
     model: string,
     price: number,
     color: string,
-    motor_type: string,
+    motorType: string,
     power: number,
     place_number: number,
     status: number,
@@ -33,9 +33,9 @@ export class Car {
     this.model = model;
     this.price = price;
     this.color = color;
-    this.motor_type = motor_type;
+    this.motorType = motorType;
     this.power = power;
-    this.place_number = place_number;
+    this.placeNumber = place_number;
     this.status = status;
     this.type = type;
   }

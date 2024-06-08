@@ -3,10 +3,14 @@ import Link from "next/link";
 import Image from "next/image";
 import heroImage from "@/assets/img/2024-AMG-CLE-COUPE.webp";
 import AppointmentForm from "@/components/AppointmentForm";
+import {redirect} from "next/navigation";
 
-const Home: NextPage = () => (
+const Home: NextPage = () => {
+  redirect ("/car")
+  return (
   <>
-    <nav className="px-32 py-2 flex justify-between align-center bg-dark bg-opacity-50 backdrop-blur overflow-hidden fixed w-full shadow-2xl z-20">
+    <nav
+        className="px-32 py-2 flex justify-between align-center bg-dark bg-opacity-50 backdrop-blur overflow-hidden fixed w-full shadow-2xl z-20">
       <Link href="/">
         <span className="text-3xl font-bold text-light">bolide.mg</span>
       </Link>
@@ -16,17 +20,17 @@ const Home: NextPage = () => (
     </nav>
     <main className="px-32 py-8 font-medium">
       <div
-        id="hero"
-        className="h-lvh flex flex-col items-center justify-center"
+          id="hero"
+          className="h-lvh flex flex-col items-center justify-center"
       >
         <Image
-          src={heroImage}
-          priority
-          width={2400}
-          height={900}
-          alt="2024-AMG-CLE-COUPE"
-          placeholder="blur"
-          className="-z-10 h-screen absolute overflow-hidden aspect-square top-0"
+            src={heroImage}
+            priority
+            width={2400}
+            height={900}
+            alt="2024-AMG-CLE-COUPE"
+            placeholder="blur"
+            className="-z-10 h-screen absolute overflow-hidden aspect-square top-0"
         />
         <div className="drop-shadow text-light flex flex-col px-12 gap-6">
           <div>
@@ -44,8 +48,8 @@ const Home: NextPage = () => (
         </div>
       </div>
       <div
-        id="catalogue"
-        className="h-screen py-12 flex flex-col gap-8 text-center"
+          id="catalogue"
+          className="h-screen py-12 flex flex-col gap-8 text-center"
       >
         <h1>Notre catalogue</h1>
         <div id="brands">
@@ -75,10 +79,10 @@ const Home: NextPage = () => (
       </div>
       <div className="mx-10">
         <h1>Prendre rendez-vous</h1>
-        <AppointmentForm idCar={1} />
+        <AppointmentForm idCar={1}/>
       </div>
     </footer>
   </>
-);
+)};
 
 export default Home;

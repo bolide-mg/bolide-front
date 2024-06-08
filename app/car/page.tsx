@@ -98,12 +98,12 @@ const Main = async () => {
             <p>depuis 2005</p>
           </div>
           <div className="flex flex-row gap-4">
-            <Link href="/car">
-              <button className="button-primary">Prendre rendez-vous</button>
+            <Link href="/search">
+              <button className="button-primary">Rechercher</button>
             </Link>
-            <Link href="/admin">
-              <button className="button-primary">Se connecter</button>
-            </Link>
+            {/*<Link href="/admin">*/}
+            {/*  <button className="button-primary">Se connecter</button>*/}
+            {/*</Link>*/}
           </div>
         </div>
       </div>
