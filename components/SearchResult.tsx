@@ -28,10 +28,15 @@ const Main: FC<{ car: Car }> = ({ car }) => {
         }
       </div>
       <div className="w-3/4 bg-light p-8 flex items-center justify-evenly">
-        <div className="flex flex-col gap-4">
-          <p className="font-black text-5xl">
-            {car.name}/{car.brand}/{car.motor_type}
+        <div className="flex flex-col gap-4 w-full">
+          <p className="font-black text-3xl">
+            {car.name}
           </p>
+          <p className="font-black text-xl">
+            {car.brand}
+          </p><p className="font-black text-xl">
+          {car.motorType}
+        </p>
           <p className="font-bold">Description</p>
           <p>{car.description}</p>
         </div>
