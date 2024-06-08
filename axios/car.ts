@@ -6,8 +6,11 @@ const carAxios = axios.create(instance.defaults);
 carAxios.defaults.baseURL += "/car";
 
 export const getAllCar = (): Promise<Car[]> =>
-  carAxios.get("").then((r) => r.data);
-
+    carAxios.get("").then((r) => r.data);
+export const getAllBrand = (): Promise<String[]> =>
+    carAxios.get("/brand").then((r) => r.data);
+export const getTrendingCar = (): Promise<Car[]> =>
+    carAxios.get("/trending").then((r) => r.data);
 export const getCarById = (id: typeof Car.prototype.id): Promise<Car> =>
   carAxios.get(`/${id}`).then((r) => r.data);
 
