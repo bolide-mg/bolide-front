@@ -22,7 +22,7 @@ export class Car {
     color: string,
     motorType: string,
     power: number,
-    place_number: number,
+    placeNumber: number,
     status: number,
     type: string,
   ) {
@@ -35,7 +35,7 @@ export class Car {
     this.color = color;
     this.motorType = motorType;
     this.power = power;
-    this.placeNumber = place_number;
+    this.placeNumber = placeNumber;
     this.status = status;
     this.type = type;
   }
