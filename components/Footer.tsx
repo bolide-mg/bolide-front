@@ -16,8 +16,7 @@ const Main = () => {
         </div>
       </div>
       <div>
-        <h1>Prendre rendez-vous</h1>
-        <div>TODO: forms</div>
+        <h1>Prennez rendez-vous</h1>
       </div>
     </footer>
   );

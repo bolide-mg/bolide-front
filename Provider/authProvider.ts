@@ -1,3 +1,5 @@
+import {getAdminById} from "@/axios/admin";
+
 const login = async ({username, password}: { username: string, password: string }) => {
     const request = new Request('http://localhost:8080/admin/signin', {
         method: 'PUT',
@@ -37,14 +39,13 @@ const logout = async () => {
 }
 
 const getIdentity = async (id: number) => {
-    const request = new Request(`http://localhost:8080/admin/${id}`);
-    let response = await fetch(request);
+    let response = await getAdminById(id);
     let json: {
         email: string,
         id: number,
         name: string,
         password: string
-    } = await response.json();
+    } = await response;
     return {
         id: json.id,
         fullName: json.name,

@@ -25,6 +25,12 @@ const AdminApp = () => (
       edit={EditGuesser}
       create={CreateBase}
     />
+    <Resource
+      name="images"
+      list={ListGuesser}
+      edit={EditGuesser}
+      create={CreateBase}
+    />
   </Admin>
 );
 

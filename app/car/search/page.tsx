@@ -28,28 +28,28 @@ const Main = () => {
   return (
     <>
       <div className="w-full min-h-full bg-white">
-        <div className="flex w-full h-16 items-center justify-center">
+        <div className="flex w-full h-16 items-center justify-center gap-2 mx-2">
           <Input
             type="text"
-            placeholder="search"
-            className="rounded-md border w-1/2 h-3/4 p-1"
+            placeholder="search by name"
+            className="rounded-md border w-1/4 h-3/4 p-1"
             onChange={searchName.onChange}
           />
           <Input
             type="text"
-            placeholder="search brand"
-            className="rounded-md border w-1/4 h-3/4 p-1 mr-2"
+            placeholder="search by brand"
+            className="rounded-md border w-1/4 h-3/4 p-1"
             onChange={searchBrand.onChange}
           />
           <Input
             type="text"
-            placeholder="search model"
-            className="rounded-md border w-1/4 h-3/4 p-1 mr-2"
+            placeholder="search by model"
+            className="rounded-md border w-1/4 h-3/4 p-1"
             onChange={searchModel.onChange}
           />
           <Input
             type="text"
-            placeholder="search motor type"
+            placeholder="search by motor type"
             className="rounded-md border w-1/4 h-3/4 p-1"
             onChange={searchMotorType.onChange}
           />
