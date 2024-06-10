@@ -6,11 +6,14 @@ import { useEffect, useState } from "react";
 import { Car } from "@/axios/model/Car";
 import {getAllCar, searchCar} from "@/axios/car";
 import useSearch from "@/hooks/useSearch";
+import {useSearchParams} from "next/navigation";
 
 const Main = () => {
+const searchParams = useSearchParams();
+  const brand = searchParams.get("brand");
   const [resultCar, setResultCar] = useState<Car[]>([]);
   const searchName = useSearch("", 1000);
-  const searchBrand = useSearch("", 1000);
+  const searchBrand = useSearch(brand || "", 1000);
   const searchModel = useSearch("", 1000);
   const searchMotorType = useSearch("", 1000);
 
@@ -21,7 +24,6 @@ const Main = () => {
       searchCar(searchName.textToSearch, searchBrand.textToSearch, searchModel.textToSearch, searchMotorType.textToSearch).then(r=>setResultCar(r))
     }
   }, [
-    searchName.text, searchBrand.text, searchModel.text, searchMotorType.text,
     searchName.textToSearch, searchBrand.textToSearch, searchModel.textToSearch, searchMotorType.textToSearch,
   ]);
 
@@ -40,6 +42,7 @@ const Main = () => {
             placeholder="search by brand"
             className="rounded-md border w-1/4 h-3/4 p-1"
             onChange={searchBrand.onChange}
+            defaultValue={brand || ""}
           />
           <Input
             type="text"

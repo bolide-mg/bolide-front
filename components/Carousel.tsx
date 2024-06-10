@@ -22,11 +22,12 @@ const Main: FC<{ images: IModel[] }> = ({ images }) => {
           {
             images.length == 0 ?
                 "No images" :
-                <Image src={images[idCarousel].url}
-                       width={1000}
-                       height={1000}
-                       className="absolute w-1/2 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                       alt="..."/>
+                <a href={`/car/${images[idCarousel].car.id}`}><Image src={images[idCarousel]?.url}
+                                                                  width={1000}
+                                                                  height={1000}
+                                                                  className="absolute w-1/2 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                                                  alt="..."
+                /></a>
           }
         </div>
         <div className="absolute bottom-0 w-full">

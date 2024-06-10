@@ -9,7 +9,7 @@ import { Image as imageModel} from "@/axios/model/Image";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
 import axios from "axios";
-import car, {getAllBrand, getTrendingCar} from "@/axios/car";
+import car, {getAllBrand, getTrendingCar, searchImageByCarList} from "@/axios/car";
 import {getImageByCarId} from "@/axios/image";
 
 interface FormData {
@@ -141,7 +141,7 @@ const Main = async () => {
         />
         <div
           id="catalogue"
-          className="w-screen h-screen py-12 flex flex-col gap-8 text-center bg-light justify-center"
+          className="w-screen min-h-screen py-12 flex flex-col gap-8 text-center bg-light justify-center"
         >
           <h1>Notre catalogue</h1>
           <div id="brands">
@@ -162,19 +162,9 @@ const Main = async () => {
           </div>
           <div id="carShow">
             <h2>Car Show</h2>
-            {/*{trendList.length > 0 ? (*/}
-            {/*  <Carousel>*/}
-            {/*    {trendList.map((car) => (*/}
-            {/*      <Link key={car.id} href={`/car/${car.id}`}>*/}
-            {/*        <div className="carousel-item">*/}
-            {/*          /!* Render car details or image *!/*/}
-            {/*        </div>*/}
-            {/*      </Link>*/}
-            {/*    ))}*/}
-            {/*  </Carousel>*/}
-            {/*) : (*/}
-              <p>No cars trending currently</p>
-            {/*)}*/}
+            <div className="h-screen relative">
+              {trendList.length > 0 ? <Carousel images={await searchImageByCarList(trendList)} /> : <p>No cars trending currently</p>}
+            </div>
           </div>
         </div>
         <Section

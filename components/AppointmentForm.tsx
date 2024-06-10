@@ -69,70 +69,80 @@ const AppointmentForm: React.FC<{ idCar: typeof Car.prototype.id }> = ({
     <form onSubmit={handleSubmit(onSubmit)} className="h-full w-full flex flex-col items-center">
       <div className="flex flex-col gap-2 justify-evenly h-full w-4/5">
         <div className="flex flex-col">
-          <label>Nom</label>
-          <input type="text" {...register("name")} className="input-field"/>
-          {errors.name && <p className="error-message">{errors.name.message}</p>}
+          <div className="flex">
+            <div className="flex flex-col">
+              <label>Nom</label>
+              <input type="text" {...register("name")} className="input-field"/>
+              {errors.name && <p className="error-message">{errors.name.message}</p>}
+            </div>
+
+            <div className="flex flex-col">
+              <label>Prénom</label>
+              <input type="text" {...register("firstName")} className="input-field"/>
+              {errors.firstName && (
+                <p className="error-message">{errors.firstName.message}</p>
+              )}
+            </div>
+          </div>
+
+          <div className="flex">
+            <div className="flex flex-col">
+              <label>Email</label>
+              <input type="email" {...register("email")} className="input-field"/>
+              {errors.email && (
+                <p className="error-message">{errors.email.message}</p>
+              )}
+            </div>
+
+            <div className="flex flex-col">
+              <label>Téléphone</label>
+              <input type="tel" {...register("phone")} className="input-field"/>
+              {errors.phone && (
+                <p className="error-message">{errors.phone.message}</p>
+              )}
+            </div>
+          </div>
         </div>
 
-        <div className="flex flex-col">
-          <label>Prénom</label>
-          <input type="text" {...register("firstName")} className="input-field" />
-          {errors.firstName && (
-            <p className="error-message">{errors.firstName.message}</p>
-          )}
-        </div>
-
-        <div className="flex flex-col">
-          <label>Email</label>
-          <input type="email" {...register("email")} className="input-field" />
-          {errors.email && (
-            <p className="error-message">{errors.email.message}</p>
-          )}
-        </div>
-
-        <div className="flex flex-col">
-          <label>Téléphone</label>
-          <input type="tel" {...register("phone")} className="input-field" />
-          {errors.phone && (
-            <p className="error-message">{errors.phone.message}</p>
-          )}
-        </div>
 
         <div className="flex flex-col">
           <label>Message</label>
-          <textarea {...register("message")} className="input-field" />
+          <textarea {...register("message")} className="input-field"/>
           {errors.message && (
             <p className="error-message">{errors.message.message}</p>
           )}
         </div>
 
-        <div className="flex flex-col">
-          <label>Date</label>
-          <Controller
-            name="date"
-            control={control}
-            render={({ field }) => (
-              <DatePicker
-                selected={field.value}
-                onChange={field.onChange}
-                className="input-field"
-                dateFormat="dd/MM/yyyy"
-              />
-            )}
-          />
-          {errors.date && <p className="error-message">{errors.date.message}</p>}
-        </div>
+        <div className="flex">
+          <div className="flex flex-col">
+            <label>Date</label>
+            <Controller
+              name="date"
+              control={control}
+              render={({field}) => (
+                <DatePicker
+                  selected={field.value}
+                  onChange={field.onChange}
+                  className="input-field"
+                  dateFormat="dd/MM/yyyy"
+                />
+              )}
+            />
+            {errors.date && <p className="error-message">{errors.date.message}</p>}
+          </div>
 
           <div className="flex flex-col">
             <label>Heure</label>
             <input
-                type="time"
-                {...register("time")}
-                className="input-field"
-                step="60"
+              type="time"
+              {...register("time")}
+              className="input-field"
+              step="60"
             />
             {errors.time && <p className="error-message">{errors.time.message}</p>}
           </div>
+        </div>
+
 
         <button
           type="submit"
