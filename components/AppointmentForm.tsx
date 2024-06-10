@@ -58,7 +58,7 @@ const AppointmentForm: React.FC<{ idCar: typeof Car.prototype.id }> = ({
         ),
       );
 
-      await sendEmail(JSON.stringify(data));
+      await sendEmail(JSON.stringify(data), data.email);
       toast.success("Rendez-vous pris avec succès")
     } catch (error) {
       toast.error("Erreur lors de la prise de rendez-vous");
