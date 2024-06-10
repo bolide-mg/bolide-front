@@ -10,6 +10,7 @@ import {Appointment} from "@/axios/model/Appointment";
 import {Car} from "@/axios/model/Car";
 import {getCarById} from "@/axios/car";
 import {toast} from "react-toastify";
+import {sendEmail} from "@/axios/email";
 
 const emailAdmin = "hello@bolide.mg";
 
@@ -57,13 +58,7 @@ const AppointmentForm: React.FC<{ idCar: typeof Car.prototype.id }> = ({
         ),
       );
 
-      await fetch("/email", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ ...data, emailAdmin }),
-      });
+      await sendEmail(JSON.stringify(data));
       toast.success("Rendez-vous pris avec succès")
     } catch (error) {
       toast.error("Erreur lors de la prise de rendez-vous");
