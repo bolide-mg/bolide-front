@@ -1,6 +1,8 @@
 import instance from "@/axios/default";
 import axios from "axios";
 import { Car } from "@/axios/model/Car";
+import {Image} from "@/axios/model/Image";
+import {getImageByCarId} from "@/axios/image";
 
 const carAxios = axios.create(instance.defaults);
 carAxios.defaults.baseURL += "/car";
@@ -34,5 +36,13 @@ export const searchCar = (
   // Send the GET request with the search parameters
   return carAxios.get(url).then((r) => r.data);
 };
+
+export const searchImageByCarList = async (cars: Car[]): Promise<Image[]> => {
+  const result: Image[] = [];
+  for (const car of cars) {
+    result.push((await getImageByCarId(car.id))[0])
+  }
+  return result;
+}
 
 export default carAxios;

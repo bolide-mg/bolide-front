@@ -12,7 +12,7 @@ export const getImageById = (id: typeof Image.prototype.id): Promise<Image> =>
   });
 
 export const getImageByCarId = (
-  id: typeof Image.prototype.car_id,
+  id: typeof Image.prototype.car.id,
 ): Promise<Image[]> => imageAxios.get(`/car/${id}`).then((r) => r.data).catch(err=>{
   toast.error(`No images found for the car: ${id}`)
 });
