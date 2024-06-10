@@ -9,7 +9,7 @@ const Main: FC<{ car: Car }> = ({ car }) => {
 
   useEffect(() => {
     getImageByCarId(car.id).then(r=> {
-      setImage(r[0].url)
+      setImage(r[0]?.url)
     })
   }, []);
 
