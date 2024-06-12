@@ -1,21 +1,28 @@
 import {
-  fetchUtils,
+  CreateParams,
   DataProvider,
+  DeleteManyParams,
+  DeleteParams,
+  fetchUtils,
   GetListParams,
-  GetOneParams,
   GetManyParams,
   GetManyReferenceParams,
-  UpdateParams,
+  GetOneParams,
   UpdateManyParams,
-  DeleteParams,
-  DeleteManyParams,
-  CreateParams,
-  CreateResult,
+  UpdateParams,
 } from "react-admin";
 import stringify from "query-string";
 
 const apiUrl = "http://localhost:8080";
 const httpClient = fetchUtils.fetchJson;
+
+const createPostFormData = (params: CreateParams<any>) => {
+  const formData = new FormData();
+  params.data.carId && formData.append("carId", params.data.carId);
+  params.data.file[0]?.rawFile && formData.append("file", params.data.file[0].rawFile);
+
+  return formData;
+}
 
 const jsonProvider: DataProvider = {
   // Done
@@ -36,14 +43,30 @@ const jsonProvider: DataProvider = {
       total: Array(result.json).length + 1,
     };
   },
-
-  //Not done
-  create<RecordType, ResultRecordType>(
+  async create(
     resource: string,
     params: CreateParams,
-  ): Promise<CreateResult<any>> {
-    return Promise.resolve({ data: undefined });
+  ) {
+    console.log(params)
+    switch (resource) {
+      case "images": {
+        const result = await httpClient(`${apiUrl}/images/car/${params.data.carId}/save`, {
+          method: 'POST',
+          body: createPostFormData(params)
+        });
+        return {
+          data: result.json
+        }
+      }
+      default: {
+        return {
+          data: null
+        }
+      }
+    }
   },
+
+  //Not done
   getOne: (resource: string, params: GetOneParams) =>
     httpClient(`${apiUrl}/${resource}/${params.id}`).then(({ json }) => ({
       data: json,

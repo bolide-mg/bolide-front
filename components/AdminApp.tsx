@@ -10,6 +10,9 @@ import {
   CreateBase,
 } from "react-admin";
 import jsonAdminProvider from "@/axios/jsonAdminProvider";
+import CarList from "@/components/admin/CarList";
+import ImageList from "@/components/admin/ImageList";
+import CreateImages from "@/components/admin/CreateImages";
 
 const AdminApp = () => (
   <Admin dataProvider={jsonAdminProvider}  authProvider={authProvider}>
@@ -21,7 +24,7 @@ const AdminApp = () => (
     />
     <Resource
       name="car"
-      list={ListGuesser}
+      list={CarList}
       edit={EditGuesser}
       create={CreateBase}
     />
@@ -33,9 +36,9 @@ const AdminApp = () => (
     />
     <Resource
       name="images"
-      list={ListGuesser}
+      list={ImageList}
       edit={EditGuesser}
-      create={CreateBase}
+      create={CreateImages}
     />
   </Admin>
 );
