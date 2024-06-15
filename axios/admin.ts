@@ -1,6 +1,5 @@
 import instance from "@/axios/default";
 import axios from "axios";
-import { Image } from "@/axios/model/Image";
 
 const adminAxios = axios.create(instance.defaults);
 adminAxios.defaults.baseURL += "/admin";

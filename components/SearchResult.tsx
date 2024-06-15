@@ -11,7 +11,7 @@ const Main: FC<{ car: Car }> = ({ car }) => {
     getImageByCarId(car.id).then((r) => {
       setImage(r[0]?.url);
     });
-  }, []);
+  }, [car.id]);
 
   return (
     <div className="w-full h-64 bg-grey hover:bg-light transition flex border-b">

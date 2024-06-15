@@ -10,7 +10,6 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import DropDown from "@/components/DropDown";
 import { getURL } from "next/dist/shared/lib/utils";
 import { classNames } from "@/utils";
-import theme from "tailwindcss/defaultTheme";
 import LinkMainPage from "@/components/LinkMainPage";
 
 const navigation = [

@@ -1,7 +1,5 @@
 import React from "react";
 
-const appointment_modal_id = "appointment-modal";
-
 const Main = ({
   show,
   onClose,

@@ -5,15 +5,8 @@ import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import LinkMainPage from "@/components/LinkMainPage";
 import Carousel from "@/components/Carousel";
 import { Car } from "@/axios/model/Car";
-import { Image as imageModel } from "@/axios/model/Image";
-import { useForm } from "react-hook-form";
 import Link from "next/link";
-import axios from "axios";
-import car, {
-  getAllBrand,
-  getTrendingCar,
-  searchImageByCarList,
-} from "@/axios/car";
+import { getAllBrand, getTrendingCar, searchImageByCarList } from "@/axios/car";
 import { getImageByCarId } from "@/axios/image";
 
 interface FormData {
@@ -62,15 +55,7 @@ const Main = async () => {
         message: data.message,
       };
 
-      // await emailjs.send(
-      //     'YOUR_SERVICE_ID',
-      //     'YOUR_TEMPLATE_ID',
-      //     templateParams,
-      //     'YOUR_PUBLIC_KEY'
-      // );
-
       console.log("Email sent successfully!");
-      // reset();
     } catch (error) {
       console.error("Error sending email:", error);
     }
@@ -78,7 +63,7 @@ const Main = async () => {
   let brandList: String[] = [];
   let trendList: Car[] = [];
   let carList: Car[] = [];
-  let imageList: imageModel[] = [];
+  // let imageList: imageModel[] = [];
 
   try {
     brandList = await getAllBrand();

@@ -11,9 +11,6 @@ import { Car } from "@/axios/model/Car";
 import { getCarById } from "@/axios/car";
 import { toast } from "react-toastify";
 import { sendEmail } from "@/axios/email";
-
-const emailAdmin = "hello@bolide.mg";
-
 const appointmentSchema = z.object({
   name: z.string().min(1, { message: "Le nom est requis" }),
   firstName: z.string().min(1, { message: "Le prénom est requis" }),
@@ -34,7 +31,6 @@ const AppointmentForm: React.FC<{ idCar: typeof Car.prototype.id }> = ({
     handleSubmit,
     control,
     formState: { errors },
-    reset,
   } = useForm<AppointmentFormValues>({
     resolver: zodResolver(appointmentSchema),
   });
