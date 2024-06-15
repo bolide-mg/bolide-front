@@ -1,3 +1,5 @@
+import CreateCommentaire from "@/components/CreateCommentaire";
+
 const Main = () => {
   return (
     <footer className="h-screen px-32 py-24 flex flex-row gap-8 bg-dark text-light font-medium">
@@ -16,7 +18,8 @@ const Main = () => {
         </div>
       </div>
       <div>
-        <h1>Prennez rendez-vous</h1>
+        <h1>Envoyer un commentaire</h1>
+        <CreateCommentaire />
       </div>
     </footer>
   );
