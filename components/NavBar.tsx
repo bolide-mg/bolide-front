@@ -14,7 +14,7 @@ import theme from "tailwindcss/defaultTheme";
 import LinkMainPage from "@/components/LinkMainPage";
 
 const navigation = [
-  { name: "Main Page", href: "/car", current: true },
+  { name: "Main Page", href: "/car", current: false },
   { name: "Search", href: "/car/search", current: false },
   { name: "Admin", href: "/admin", current: false },
 ];
@@ -24,7 +24,7 @@ const Main = () => {
     navigation.forEach((n) => {
       const actualUrl = n.href;
       if (getURL().substring(0, actualUrl.length) == actualUrl) {
-        n.current = true;
+        n.current = false;
       }
     });
   });

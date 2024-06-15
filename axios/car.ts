@@ -1,18 +1,18 @@
 import instance from "@/axios/default";
 import axios from "axios";
 import { Car } from "@/axios/model/Car";
-import {Image} from "@/axios/model/Image";
-import {getImageByCarId} from "@/axios/image";
+import { Image } from "@/axios/model/Image";
+import { getImageByCarId } from "@/axios/image";
 
 const carAxios = axios.create(instance.defaults);
 carAxios.defaults.baseURL += "/car";
 
 export const getAllCar = (): Promise<Car[]> =>
-    carAxios.get("").then((r) => r.data);
+  carAxios.get("").then((r) => r.data);
 export const getAllBrand = (): Promise<String[]> =>
-    carAxios.get("/brand").then((r) => r.data);
+  carAxios.get("/brand").then((r) => r.data);
 export const getTrendingCar = (): Promise<Car[]> =>
-    carAxios.get("/trending").then((r) => r.data);
+  carAxios.get("/trending").then((r) => r.data);
 export const getCarById = (id: typeof Car.prototype.id): Promise<Car> =>
   carAxios.get(`/${id}`).then((r) => r.data);
 
@@ -37,12 +37,23 @@ export const searchCar = (
   return carAxios.get(url).then((r) => r.data);
 };
 
+export const searchCarByPrice = async (
+  minPrice: number,
+  maxPrice: number,
+): Promise<Car[]> => {
+  const params = new URLSearchParams();
+  params.append("minPrice", minPrice.toString());
+  params.append("maxPrice", maxPrice.toString());
+  const url = `/search/price?${params.toString()}`;
+  return carAxios.get(url).then((r) => r.data);
+};
+
 export const searchImageByCarList = async (cars: Car[]): Promise<Image[]> => {
   const result: Image[] = [];
   for (const car of cars) {
-    result.push((await getImageByCarId(car.id))[0])
+    result.push((await getImageByCarId(car.id))[0]);
   }
   return result;
-}
+};
 
 export default carAxios;

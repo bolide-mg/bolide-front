@@ -6,7 +6,7 @@ const Main = ({
   show,
   onClose,
   children,
-  title
+  title,
 }: {
   show: boolean;
   onClose: () => void;

@@ -1,4 +1,4 @@
-import {CreateButton, Datagrid, List, TextField} from "react-admin"
+import { CreateButton, Datagrid, List, TextField } from "react-admin";
 import React from "react";
 
 const Main = () => (
@@ -9,8 +9,8 @@ const Main = () => (
       <TextField source="brand" />
       <TextField source="model" />
       <CreateButton label="Add Images" resource="images" />
-    </ Datagrid>
-  </ List>
-)
+    </Datagrid>
+  </List>
+);
 
 export default Main;

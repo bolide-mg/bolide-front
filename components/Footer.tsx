@@ -2,7 +2,7 @@ import CreateCommentaire from "@/components/CreateCommentaire";
 
 const Main = () => {
   return (
-    <footer className="h-screen px-32 py-24 flex flex-row gap-8 bg-dark text-light font-medium">
+    <footer className="h-96 px-32 py-24 flex flex-row gap-8 bg-dark text-light font-medium">
       <div>
         <h1>Nous contacter</h1>
         <div className="m-auto flex flex-col gap-2">

@@ -1,30 +1,33 @@
-"use client"
+"use client";
 
-import {useState} from "react";
-import {sendEmail} from "@/axios/email";
+import { useState } from "react";
+import { sendEmail } from "@/axios/email";
 
 const Main = () => {
-  const [email, setEmail] = useState("")
-  const [content, setContent] = useState("")
+  const [email, setEmail] = useState("");
+  const [content, setContent] = useState("");
 
   return (
-    <form className="flex flex-col gap-2 p-2" onSubmit={()=>{
-      sendEmail(content)
-    }}>
+    <form
+      className="flex flex-col gap-2 p-2"
+      onSubmit={() => {
+        sendEmail(content);
+      }}
+    >
       <input
         type="email"
         placeholder="Ton email"
-        onChange={e=>setEmail(e.target.value)}
+        onChange={(e) => setEmail(e.target.value)}
       />
       <textarea
         name="content"
         id="content-commentaire"
         placeholder="Ton commentaire"
-        onChange={e=>setContent(e.target.value)}
+        onChange={(e) => setContent(e.target.value)}
       />
       <button type="submit">Comment</button>
     </form>
-  )
+  );
 };
 
 export default Main;

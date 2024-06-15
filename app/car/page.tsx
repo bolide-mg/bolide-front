@@ -5,12 +5,16 @@ import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import LinkMainPage from "@/components/LinkMainPage";
 import Carousel from "@/components/Carousel";
 import { Car } from "@/axios/model/Car";
-import { Image as imageModel} from "@/axios/model/Image";
+import { Image as imageModel } from "@/axios/model/Image";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
 import axios from "axios";
-import car, {getAllBrand, getTrendingCar, searchImageByCarList} from "@/axios/car";
-import {getImageByCarId} from "@/axios/image";
+import car, {
+  getAllBrand,
+  getTrendingCar,
+  searchImageByCarList,
+} from "@/axios/car";
+import { getImageByCarId } from "@/axios/image";
 
 interface FormData {
   name: string;
@@ -98,7 +102,7 @@ const Main = async () => {
             <p>depuis 2005</p>
           </div>
           <div className="flex flex-row gap-4">
-            <Link href="/search">
+            <Link href="/car/search">
               <button className="button-primary">Rechercher</button>
             </Link>
             {/*<Link href="/admin">*/}
@@ -162,8 +166,12 @@ const Main = async () => {
           </div>
           <div id="carShow">
             <h2>Car Show</h2>
-            <div className="h-screen relative">
-              {trendList.length > 0 ? <Carousel images={await searchImageByCarList(trendList)} /> : <p>No cars trending currently</p>}
+            <div className="h-96 relative">
+              {trendList.length > 0 ? (
+                <Carousel images={await searchImageByCarList(trendList)} />
+              ) : (
+                <p>No cars trending currently</p>
+              )}
             </div>
           </div>
         </div>

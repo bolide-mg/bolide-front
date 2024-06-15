@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import authProvider from "@/Provider/authProvider";
 
@@ -15,12 +15,12 @@ import ImageList from "@/components/admin/ImageList";
 import CreateImages from "@/components/admin/CreateImages";
 
 const AdminApp = () => (
-  <Admin dataProvider={jsonAdminProvider}  authProvider={authProvider}>
+  <Admin dataProvider={jsonAdminProvider} authProvider={authProvider}>
     <Resource
-       name="admin"
-       list={ListGuesser}
-       edit={EditGuesser}
-       create={CreateBase}
+      name="admin"
+      list={ListGuesser}
+      edit={EditGuesser}
+      create={CreateBase}
     />
     <Resource
       name="car"

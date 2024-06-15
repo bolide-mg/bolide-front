@@ -1,4 +1,4 @@
-import {Datagrid, EditButton, List, TextField, UrlField,} from "react-admin"
+import { Datagrid, EditButton, List, TextField, UrlField } from "react-admin";
 import React from "react";
 
 const Main = () => (
@@ -8,8 +8,8 @@ const Main = () => (
       <EditButton />
       <TextField source="car.name" />
       <UrlField source="url" />
-    </ Datagrid>
-  </ List>
-)
+    </Datagrid>
+  </List>
+);
 
 export default Main;

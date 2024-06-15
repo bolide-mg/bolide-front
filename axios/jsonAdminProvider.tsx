@@ -19,10 +19,11 @@ const httpClient = fetchUtils.fetchJson;
 const createPostFormData = (params: CreateParams<any>) => {
   const formData = new FormData();
   params.data.carId && formData.append("carId", params.data.carId);
-  params.data.file[0]?.rawFile && formData.append("file", params.data.file[0].rawFile);
+  params.data.file[0]?.rawFile &&
+    formData.append("file", params.data.file[0].rawFile);
 
   return formData;
-}
+};
 
 const jsonProvider: DataProvider = {
   // Done
@@ -43,25 +44,25 @@ const jsonProvider: DataProvider = {
       total: Array(result.json).length + 1,
     };
   },
-  async create(
-    resource: string,
-    params: CreateParams,
-  ) {
-    console.log(params)
+  async create(resource: string, params: CreateParams) {
+    console.log(params);
     switch (resource) {
       case "images": {
-        const result = await httpClient(`${apiUrl}/images/car/${params.data.carId}/save`, {
-          method: 'POST',
-          body: createPostFormData(params)
-        });
+        const result = await httpClient(
+          `${apiUrl}/images/car/${params.data.carId}/save`,
+          {
+            method: "POST",
+            body: createPostFormData(params),
+          },
+        );
         return {
-          data: result.json
-        }
+          data: result.json,
+        };
       }
       default: {
         return {
-          data: null
-        }
+          data: null,
+        };
       }
     }
   },
